@@ -1,0 +1,998 @@
+[2023-02-18 11:28:33,441] [95030] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-02-18 11:28:33,577] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 11:28:33,587] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 11:28:33,587] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 11:28:33,590] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 11:28:33,591] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 11:28:33,592] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 11:28:33,592] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 11:28:33,593] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 11:28:33,594] [95030] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 11:28:33,594] [95030] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-02-18 11:28:33,594] [95030] [MainThread] [INFO] (monailabel.utils.others.generic:184) - Downloading resource: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology/model/pretrained_segmentation_spleen.pt from https://github.com/Project-MONAI/MONAILabel/releases/download/pretrained/radiology_segmentation_unet_spleen.pt
+[2023-02-18 11:28:40,687] [95030] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-02-18 11:28:40,687] [95030] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen']
+[2023-02-18 11:28:40,687] [95030] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-02-18 11:28:40,687] [95030] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-02-18 11:28:43,525] [95030] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-02-18 11:28:43,525] [95030] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-02-18 11:28:43,525] [95030] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-02-18 11:28:43,526] [95030] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 11:28:43,526] [95030] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-02-18 11:28:43,526] [95030] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f933ea23430>
+[2023-02-18 11:28:43,527] [95030] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f933ea23430>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7f933ea23ca0>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7f933ea25ca0>}
+[2023-02-18 11:28:43,527] [95030] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7f933ea25ac0>
+[2023-02-18 11:28:43,527] [95030] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-02-18 11:28:43,527] [95030] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-02-18 11:28:43,527] [95030] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-02-18 11:28:43,527] [95030] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-02-18 11:28:43,527] [95030] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7f933e981ca0>
+[2023-02-18 11:28:43,527] [95030] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-02-18 12:15:05,780] [100973] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {}
+[2023-02-18 12:15:05,898] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 12:15:05,900] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 12:15:05,900] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 12:15:05,901] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 12:15:05,901] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 12:15:05,902] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 12:15:05,902] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 12:15:05,902] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 12:15:05,902] [100973] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 12:16:41,161] [101043] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {}
+[2023-02-18 12:16:41,256] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 12:16:41,258] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 12:16:41,258] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 12:16:41,259] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 12:16:41,259] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 12:16:41,259] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 12:16:41,260] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 12:16:41,260] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 12:16:41,260] [101043] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 12:17:50,108] [101134] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {}
+[2023-02-18 12:17:50,203] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 12:17:50,205] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 12:17:50,205] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 12:17:50,206] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 12:17:50,206] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 12:17:50,206] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 12:17:50,206] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 12:17:50,206] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 12:17:50,207] [101134] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 12:18:27,444] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-02-18 12:18:27,547] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 12:18:27,549] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 12:18:27,550] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 12:18:27,550] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 12:18:27,550] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 12:18:27,551] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 12:18:27,551] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 12:18:27,551] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 12:18:27,551] [101256] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 12:18:27,551] [101256] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-02-18 12:18:27,588] [101256] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-02-18 12:18:27,588] [101256] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen']
+[2023-02-18 12:18:27,588] [101256] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-02-18 12:18:27,588] [101256] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-02-18 12:18:27,589] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-02-18 12:18:27,589] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-02-18 12:18:27,589] [101256] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-02-18 12:18:27,589] [101256] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 12:18:27,590] [101256] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-02-18 12:18:27,590] [101256] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f3e08c43910>
+[2023-02-18 12:18:27,590] [101256] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f3e08c43910>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7f3e08c438b0>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7f3e08c62820>}
+[2023-02-18 12:18:27,590] [101256] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7f3e08c62880>
+[2023-02-18 12:18:27,591] [101256] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-02-18 12:18:27,591] [101256] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-02-18 12:18:27,591] [101256] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-02-18 12:18:27,591] [101256] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-02-18 12:18:27,591] [101256] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7f3e09974940>
+[2023-02-18 12:18:27,591] [101256] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-02-18 12:18:44,724] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 12:18:44,733] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 13:41:38,940] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 13:41:38,948] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 13:41:45,153] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:41:45,154] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:41:45,154] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 13:41:45,176] [101256] [MainThread] [INFO] (dicomweb_client.web:2246) - retrieve series "1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053" of study "1.3.6.1.4.1.14519.5.2.1.3023.4012.168302478574661582991726083511"
+[2023-02-18 13:41:45,214] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:111) - Time to download: 0.059739112854003906 (sec)
+[2023-02-18 13:41:45,259] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:56) - Image size: (512, 512, 1)
+[2023-02-18 13:41:45,297] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:60) - dicom_to_nifti latency : 0.08231592178344727 (sec)
+[2023-02-18 13:41:45,297] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 13:41:45,302] [101256] [MainThread] [INFO] (monailabel.datastore.local:438) - Adding Image: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053 => /tmp/tmpsjpu2fwc.nii.gz
+[2023-02-18 13:41:45,310] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 1])
+[2023-02-18 13:41:45,310] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (262144,)
+[2023-02-18 13:41:45,310] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 1)
+[2023-02-18 13:41:45,576] [101256] [Thread-1] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 13:41:45,579] [101256] [Thread-1] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 13:41:47,173] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 1.8696622848510742 (sec)
+[2023-02-18 13:41:47,174] [101256] [MainThread] [INFO] (monailabel.endpoints.infer:160) - Infer Request: {'model': 'Histogram+GraphCut', 'image': '1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053', 'label': '/tmp/tmpmkmbl75i.nii.gz', 'num_bins': 64, 'lamda': 1, 'sigma': 0.1, 'device': ['cpu'], 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False}
+[2023-02-18 13:41:47,174] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:41:47,174] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:41:47,174] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:279) - Infer Request (final): {'num_bins': 64, 'lamda': 1, 'sigma': 0.1, 'device': 'cpu', 'model': 'Histogram+GraphCut', 'image': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053.nii.gz', 'label': '/tmp/tmpmkmbl75i.nii.gz', 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False, 'description': 'A post processing step with histogram-based GraphCut for Generic segmentation'}
+[2023-02-18 13:41:47,175] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - PRE - Run Transform(s)
+[2023-02-18 13:41:47,176] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - PRE - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path']
+[2023-02-18 13:41:47,180] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (LoadImaged): Time: 0.0047; image: torch.Size([512, 512, 1])(torch.float32); label: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:41:47,182] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureChannelFirstd): Time: 0.0014; image: torch.Size([1, 512, 512, 1])(torch.float32); label: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:41:47,182] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:41:47,182] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:41:47,182] [101256] [MainThread] [INFO] (monailabel.scribbles.transforms:121) - Scribbles: (1, 512, 512, 1)
+[2023-02-18 13:41:47,184] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (AddBackgroundScribblesFromROId): Time: 0.0015; image: torch.Size([1, 512, 512, 1])(torch.float32); label: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:41:47,201] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (Spacingd): Time: 0.0177; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:41:47,202] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (ScaleIntensityRanged): Time: 0.0009; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:41:47,203] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:471) - Inferer:: cpu => Compose => {'transforms': (<monailabel.scribbles.transforms.MakeLikelihoodFromScribblesHistogramd object at 0x7f3dd82b5a00>,), 'map_items': True, 'unpack_items': False, 'log_stats': False, 'R': RandomState(MT19937) at 0x7F3DD828D240}
+[2023-02-18 13:41:47,203] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:420) - Infer model path: None
+[2023-02-18 13:41:47,203] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - INF - Run Inferer(s)
+[2023-02-18 13:41:47,203] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - INF - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'label_meta_dict', 'latencies']
+[2023-02-18 13:41:47,203] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:41:47,203] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:41:47,204] [101256] [MainThread] [INFO] (monailabel.scribbles.transforms:57) - found non normalized logits, normalizing using Softmax
+[2023-02-18 13:41:47,205] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - INF - Inferer (MakeLikelihoodFromScribblesHistogramd): Time: 0.0015; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:41:47,205] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - POST - Run Transform(s)
+[2023-02-18 13:41:47,205] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - POST - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'label_meta_dict', 'latencies', 'prob_meta_dict', 'prob']
+[2023-02-18 13:41:47,205] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:41:47,205] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:41:47,206] [101256] [MainThread] [INFO] (root:66) - warning: no background scribbles received with label 2, available in scribbles [0.]
+[2023-02-18 13:41:47,206] [101256] [MainThread] [INFO] (root:73) - warning: no foreground scribbles received with label 3, available in scribbles [0.]
+[2023-02-18 13:41:47,206] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (MakeISegUnaryd): Time: 0.001; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:41:47,207] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (ApplyGraphCutOptimisationd): Time: 0.0009; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32); pred: (1, 113, 113, 1)(float32)
+[2023-02-18 13:41:47,209] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Restored): Time: 0.0019; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32); pred: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:41:47,210] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (BoundingBoxd): Time: 0.0012; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32); pred: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:41:47,211] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:571) - Writing Result...
+[2023-02-18 13:41:47,211] [101256] [MainThread] [INFO] (monailabel.transform.writer:189) - Result ext: .nrrd; write_to_file: True; dtype: uint16
+[2023-02-18 13:41:47,213] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:334) - ++ Latencies => Total: 0.0389; Pre: 0.0284; Inferer: 0.0022; Invert: 0.0000; Post: 0.0058; Write: 0.0022
+[2023-02-18 13:41:47,213] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:358) - Result File: /tmp/tmp17v89vrf.nrrd
+[2023-02-18 13:41:47,213] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:359) - Result Json Keys: ['bbox', 'label_names', 'latencies']
+[2023-02-18 13:41:56,987] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:41:56,988] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:41:56,993] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 1])
+[2023-02-18 13:41:56,993] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (262144,)
+[2023-02-18 13:41:56,993] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 1)
+[2023-02-18 13:41:56,995] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 0.0074651241302490234 (sec)
+[2023-02-18 13:41:56,995] [101256] [MainThread] [INFO] (monailabel.endpoints.infer:160) - Infer Request: {'model': 'GMM+GraphCut', 'image': '1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053', 'label': '/tmp/tmp7sp70f15.nii.gz', 'num_mixtures': 20, 'lamda': 5, 'sigma': 0.5, 'device': ['cpu'], 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False}
+[2023-02-18 13:41:56,995] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:41:56,996] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:41:56,996] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:279) - Infer Request (final): {'num_mixtures': 20, 'lamda': 5, 'sigma': 0.5, 'device': 'cpu', 'model': 'GMM+GraphCut', 'image': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053.nii.gz', 'label': '/tmp/tmp7sp70f15.nii.gz', 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False, 'description': 'A post processing step with GMM-based GraphCut for Generic segmentation'}
+[2023-02-18 13:41:56,996] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - PRE - Run Transform(s)
+[2023-02-18 13:41:56,996] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - PRE - Input Keys: ['num_mixtures', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path']
+[2023-02-18 13:41:57,003] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (LoadImaged): Time: 0.0059; image: torch.Size([512, 512, 1])(torch.float32); label: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:41:57,003] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureChannelFirstd): Time: 0.0002; image: torch.Size([1, 512, 512, 1])(torch.float32); label: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:41:57,003] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:41:57,003] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:41:57,003] [101256] [MainThread] [INFO] (monailabel.scribbles.transforms:121) - Scribbles: (1, 512, 512, 1)
+[2023-02-18 13:41:57,004] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (AddBackgroundScribblesFromROId): Time: 0.0007; image: torch.Size([1, 512, 512, 1])(torch.float32); label: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:41:57,009] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (Spacingd): Time: 0.005; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:41:57,009] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (ScaleIntensityRanged): Time: 0.0002; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:41:57,009] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:471) - Inferer:: cpu => Compose => {'transforms': (<monailabel.scribbles.transforms.MakeLikelihoodFromScribblesGMMd object at 0x7f3dc66634c0>,), 'map_items': True, 'unpack_items': False, 'log_stats': False, 'R': RandomState(MT19937) at 0x7F3DD828D240}
+[2023-02-18 13:41:57,009] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:420) - Infer model path: None
+[2023-02-18 13:41:57,010] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - INF - Run Inferer(s)
+[2023-02-18 13:41:57,010] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - INF - Input Keys: ['num_mixtures', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'label_meta_dict', 'latencies']
+[2023-02-18 13:41:57,010] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:41:57,010] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:42:00,752] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:42:00,753] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:42:00,758] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 1])
+[2023-02-18 13:42:00,758] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (262144,)
+[2023-02-18 13:42:00,758] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 1)
+[2023-02-18 13:42:00,760] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 0.007055044174194336 (sec)
+[2023-02-18 13:42:00,760] [101256] [MainThread] [INFO] (monailabel.endpoints.infer:160) - Infer Request: {'model': 'GMM+GraphCut', 'image': '1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053', 'label': '/tmp/tmp38404ecq.nii.gz', 'num_mixtures': 20, 'lamda': 5, 'sigma': 0.5, 'device': ['cpu'], 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False}
+[2023-02-18 13:42:00,760] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:42:00,760] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:42:00,760] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:279) - Infer Request (final): {'num_mixtures': 20, 'lamda': 5, 'sigma': 0.5, 'device': 'cpu', 'model': 'GMM+GraphCut', 'image': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053.nii.gz', 'label': '/tmp/tmp38404ecq.nii.gz', 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False, 'description': 'A post processing step with GMM-based GraphCut for Generic segmentation'}
+[2023-02-18 13:42:00,761] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - PRE - Run Transform(s)
+[2023-02-18 13:42:00,761] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - PRE - Input Keys: ['num_mixtures', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path']
+[2023-02-18 13:42:00,767] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (LoadImaged): Time: 0.0062; image: torch.Size([512, 512, 1])(torch.float32); label: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:42:00,767] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureChannelFirstd): Time: 0.0001; image: torch.Size([1, 512, 512, 1])(torch.float32); label: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:42:00,767] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:42:00,767] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:42:00,768] [101256] [MainThread] [INFO] (monailabel.scribbles.transforms:121) - Scribbles: (1, 512, 512, 1)
+[2023-02-18 13:42:00,768] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (AddBackgroundScribblesFromROId): Time: 0.0008; image: torch.Size([1, 512, 512, 1])(torch.float32); label: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:42:00,773] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (Spacingd): Time: 0.0043; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:42:00,773] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (ScaleIntensityRanged): Time: 0.0002; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:42:00,773] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:471) - Inferer:: cpu => Compose => {'transforms': (<monailabel.scribbles.transforms.MakeLikelihoodFromScribblesGMMd object at 0x7f3e082f8d60>,), 'map_items': True, 'unpack_items': False, 'log_stats': False, 'R': RandomState(MT19937) at 0x7F3DD828DC40}
+[2023-02-18 13:42:00,773] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:420) - Infer model path: None
+[2023-02-18 13:42:00,774] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - INF - Run Inferer(s)
+[2023-02-18 13:42:00,774] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - INF - Input Keys: ['num_mixtures', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'label_meta_dict', 'latencies']
+[2023-02-18 13:42:00,774] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:42:00,774] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:42:22,503] [101256] [MainThread] [INFO] (monailabel.endpoints.infer:160) - Infer Request: {'model': 'segmentation_spleen', 'image': '1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053', 'device': ['cpu'], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False}
+[2023-02-18 13:42:22,503] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:42:22,503] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:42:22,503] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:279) - Infer Request (final): {'device': 'cpu', 'model': 'segmentation_spleen', 'image': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053.nii.gz', 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False, 'description': 'A pre-trained model for volumetric (3D) segmentation of the spleen from CT image'}
+[2023-02-18 13:42:22,503] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - PRE - Run Transform(s)
+[2023-02-18 13:42:22,503] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - PRE - Input Keys: ['device', 'model', 'image', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path']
+[2023-02-18 13:42:22,507] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (LoadImaged): Time: 0.0038; image: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:42:22,508] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureTyped): Time: 0.0001; image: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:42:22,508] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureChannelFirstd): Time: 0.0001; image: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:42:22,513] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (Spacingd): Time: 0.0052; image: torch.Size([1, 280, 280, 1])(torch.float32)
+[2023-02-18 13:42:22,513] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (ScaleIntensityRanged): Time: 0.0003; image: torch.Size([1, 280, 280, 1])(torch.float32)
+[2023-02-18 13:42:22,513] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:471) - Inferer:: cpu => SlidingWindowInferer => {'roi_size': (160, 160, 160), 'sw_batch_size': 1, 'overlap': 0.25, 'mode': constant, 'sigma_scale': 0.125, 'padding_mode': constant, 'cval': 0.0, 'sw_device': None, 'device': None, 'progress': False, 'cpu_thresh': None, 'roi_weight_map': None}
+[2023-02-18 13:42:22,514] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:420) - Infer model path: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology/model/pretrained_segmentation_spleen.pt
+[2023-02-18 13:42:24,230] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - POST - Run Transform(s)
+[2023-02-18 13:42:24,230] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - POST - Input Keys: ['device', 'model', 'image', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'latencies', 'pred']
+[2023-02-18 13:42:24,230] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (EnsureTyped): Time: 0.0001; image: torch.Size([1, 280, 280, 1])(torch.float32); pred: torch.Size([2, 280, 280, 1])(torch.float32)
+[2023-02-18 13:42:24,240] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Activationsd): Time: 0.0097; image: torch.Size([1, 280, 280, 1])(torch.float32); pred: torch.Size([2, 280, 280, 1])(torch.float32)
+[2023-02-18 13:42:24,246] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (AsDiscreted): Time: 0.0059; image: torch.Size([1, 280, 280, 1])(torch.float32); pred: torch.Size([1, 280, 280, 1])(torch.float32)
+[2023-02-18 13:42:24,247] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Restored): Time: 0.0009; image: torch.Size([1, 280, 280, 1])(torch.float32); pred: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:42:24,249] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:571) - Writing Result...
+[2023-02-18 13:42:24,250] [101256] [MainThread] [INFO] (monailabel.transform.writer:189) - Result ext: .nrrd; write_to_file: True; dtype: uint16
+[2023-02-18 13:42:24,252] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:334) - ++ Latencies => Total: 1.7492; Pre: 0.0104; Inferer: 1.7159; Invert: 0.0000; Post: 0.0200; Write: 0.0026
+[2023-02-18 13:42:24,252] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:358) - Result File: /tmp/tmpd1szqog5.nrrd
+[2023-02-18 13:42:24,252] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:359) - Result Json Keys: ['label_names', 'latencies']
+[2023-02-18 13:43:13,968] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:43:13,968] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:43:13,972] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 1])
+[2023-02-18 13:43:13,972] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (262144,)
+[2023-02-18 13:43:13,972] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 1)
+[2023-02-18 13:43:13,974] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 0.006082296371459961 (sec)
+[2023-02-18 13:43:13,974] [101256] [MainThread] [INFO] (monailabel.endpoints.infer:160) - Infer Request: {'model': 'Histogram+GraphCut', 'image': '1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053', 'label': '/tmp/tmpdbhq9emu.nii.gz', 'num_bins': 64, 'lamda': 1, 'sigma': 0.1, 'device': ['cpu'], 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False}
+[2023-02-18 13:43:13,974] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:43:13,974] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053
+[2023-02-18 13:43:13,974] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:279) - Infer Request (final): {'num_bins': 64, 'lamda': 1, 'sigma': 0.1, 'device': 'cpu', 'model': 'Histogram+GraphCut', 'image': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.297267439816180432188742253053.nii.gz', 'label': '/tmp/tmpdbhq9emu.nii.gz', 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False, 'description': 'A post processing step with histogram-based GraphCut for Generic segmentation'}
+[2023-02-18 13:43:13,975] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - PRE - Run Transform(s)
+[2023-02-18 13:43:13,975] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - PRE - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path']
+[2023-02-18 13:43:13,980] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (LoadImaged): Time: 0.0052; image: torch.Size([512, 512, 1])(torch.float32); label: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:43:13,981] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureChannelFirstd): Time: 0.0001; image: torch.Size([1, 512, 512, 1])(torch.float32); label: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:43:13,981] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:43:13,981] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:43:13,981] [101256] [MainThread] [INFO] (monailabel.scribbles.transforms:121) - Scribbles: (1, 512, 512, 1)
+[2023-02-18 13:43:13,981] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (AddBackgroundScribblesFromROId): Time: 0.0005; image: torch.Size([1, 512, 512, 1])(torch.float32); label: torch.Size([1, 512, 512, 1])(torch.float32)
+[2023-02-18 13:43:13,985] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (Spacingd): Time: 0.0043; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:43:13,986] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (ScaleIntensityRanged): Time: 0.0002; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:43:13,986] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:471) - Inferer:: cpu => Compose => {'transforms': (<monailabel.scribbles.transforms.MakeLikelihoodFromScribblesHistogramd object at 0x7f3dc6541dc0>,), 'map_items': True, 'unpack_items': False, 'log_stats': False, 'R': RandomState(MT19937) at 0x7F3DD828D940}
+[2023-02-18 13:43:13,986] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:420) - Infer model path: None
+[2023-02-18 13:43:13,986] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - INF - Run Inferer(s)
+[2023-02-18 13:43:13,986] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - INF - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'label_meta_dict', 'latencies']
+[2023-02-18 13:43:13,987] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:43:13,987] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:43:13,988] [101256] [MainThread] [INFO] (monailabel.scribbles.transforms:57) - found non normalized logits, normalizing using Softmax
+[2023-02-18 13:43:13,988] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - INF - Inferer (MakeLikelihoodFromScribblesHistogramd): Time: 0.0012; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:43:13,988] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - POST - Run Transform(s)
+[2023-02-18 13:43:13,988] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - POST - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'label_meta_dict', 'latencies', 'prob_meta_dict', 'prob']
+[2023-02-18 13:43:13,988] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 13:43:13,989] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 13:43:13,989] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (MakeISegUnaryd): Time: 0.0006; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32)
+[2023-02-18 13:43:13,994] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (ApplyGraphCutOptimisationd): Time: 0.0044; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32); pred: (1, 113, 113, 1)(float32)
+[2023-02-18 13:43:13,995] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Restored): Time: 0.0011; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32); pred: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:43:13,996] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (BoundingBoxd): Time: 0.0008; image: torch.Size([1, 113, 113, 1])(torch.float32); label: torch.Size([1, 113, 113, 1])(torch.float32); pred: torch.Size([512, 512, 1])(torch.float32)
+[2023-02-18 13:43:13,996] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:571) - Writing Result...
+[2023-02-18 13:43:13,996] [101256] [MainThread] [INFO] (monailabel.transform.writer:189) - Result ext: .nrrd; write_to_file: True; dtype: uint16
+[2023-02-18 13:43:13,998] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:334) - ++ Latencies => Total: 0.0240; Pre: 0.0114; Inferer: 0.0020; Invert: 0.0000; Post: 0.0080; Write: 0.0024
+[2023-02-18 13:43:13,998] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:358) - Result File: /tmp/tmp52ns35fc.nrrd
+[2023-02-18 13:43:13,998] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:359) - Result Json Keys: ['bbox', 'label_names', 'latencies']
+[2023-02-18 14:41:01,122] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:41:01,268] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:45:01,876] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:45:02,028] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:45:17,702] [101256] [MainThread] [INFO] (monailabel.utils.async_tasks.task:41) - Train request: {'model': 'segmentation_spleen', 'name': 'train_01', 'pretrained': True, 'device': 'cuda', 'max_epochs': 50, 'early_stop_patience': -1, 'val_split': 0.2, 'train_batch_size': 1, 'val_batch_size': 1, 'multi_gpu': True, 'gpus': 'all', 'dataset': ['SmartCacheDataset', 'CacheDataset', 'PersistentDataset', 'Dataset'], 'dataloader': ['ThreadDataLoader', 'DataLoader'], 'tracking': ['mlflow', 'None'], 'tracking_uri': '', 'tracking_experiment_name': '', 'segmentation_spleen': {'name': 'train_01', 'pretrained': True, 'device': 'cuda', 'max_epochs': 50, 'early_stop_patience': -1, 'val_split': 0.2, 'train_batch_size': 1, 'val_batch_size': 1, 'multi_gpu': True, 'gpus': 'all', 'dataset': ['SmartCacheDataset', 'CacheDataset', 'PersistentDataset', 'Dataset'], 'dataloader': ['ThreadDataLoader', 'DataLoader'], 'tracking': ['mlflow', 'None'], 'tracking_uri': '', 'tracking_experiment_name': ''}}
+[2023-02-18 14:45:17,709] [101256] [ThreadPoolExecutor-2_0] [INFO] (monailabel.utils.async_tasks.utils:49) - Before:: /home/ndvinh/Desktop/KLTN/MONAILabel:
+[2023-02-18 14:45:17,709] [101256] [ThreadPoolExecutor-2_0] [INFO] (monailabel.utils.async_tasks.utils:53) - After:: /home/ndvinh/Desktop/KLTN/MONAILabel:
+[2023-02-18 14:45:17,709] [101256] [ThreadPoolExecutor-2_0] [INFO] (monailabel.utils.async_tasks.utils:65) - COMMAND:: /home/ndvinh/anaconda3/envs/monailabel-dev-env/bin/python -m monailabel.interfaces.utils.app -m train -r {"model":"segmentation_spleen","name":"train_01","pretrained":true,"device":"cuda","max_epochs":50,"early_stop_patience":-1,"val_split":0.2,"train_batch_size":1,"val_batch_size":1,"multi_gpu":true,"gpus":"all","dataset":["SmartCacheDataset","CacheDataset","PersistentDataset","Dataset"],"dataloader":["ThreadDataLoader","DataLoader"],"tracking":["mlflow","None"],"tracking_uri":"","tracking_experiment_name":"","segmentation_spleen":{"name":"train_01","pretrained":true,"device":"cuda","max_epochs":50,"early_stop_patience":-1,"val_split":0.2,"train_batch_size":1,"val_batch_size":1,"multi_gpu":true,"gpus":"all","dataset":["SmartCacheDataset","CacheDataset","PersistentDataset","Dataset"],"dataloader":["ThreadDataLoader","DataLoader"],"tracking":["mlflow","None"],"tracking_uri":"","tracking_experiment_name":""}}
+[2023-02-18 14:45:17,951] [108583] [MainThread] [INFO] (__main__:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-02-18 14:45:20,016] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 14:45:20,019] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 14:45:20,019] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 14:45:20,020] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 14:45:20,020] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 14:45:20,020] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 14:45:20,021] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 14:45:20,021] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 14:45:20,021] [108583] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 14:45:20,021] [108583] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-02-18 14:45:20,069] [108583] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-02-18 14:45:20,069] [108583] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen']
+[2023-02-18 14:45:20,069] [108583] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-02-18 14:45:20,069] [108583] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-02-18 14:45:20,069] [108583] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-02-18 14:45:20,069] [108583] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-02-18 14:45:20,070] [108583] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-02-18 14:45:20,071] [108583] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 14:45:20,071] [108583] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-02-18 14:45:20,072] [108583] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7fa8c47938e0>
+[2023-02-18 14:45:20,072] [108583] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7fa8c47938e0>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7fa8c4793880>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7fa8c4732850>}
+[2023-02-18 14:45:20,072] [108583] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7fa8c47328b0>
+[2023-02-18 14:45:20,072] [108583] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-02-18 14:45:20,072] [108583] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-02-18 14:45:20,072] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:432) - Train Request (input): {'model': 'segmentation_spleen', 'name': 'train_01', 'pretrained': True, 'device': 'cuda', 'max_epochs': 50, 'early_stop_patience': -1, 'val_split': 0.2, 'train_batch_size': 1, 'val_batch_size': 1, 'multi_gpu': True, 'gpus': 'all', 'dataset': ['SmartCacheDataset', 'CacheDataset', 'PersistentDataset', 'Dataset'], 'dataloader': ['ThreadDataLoader', 'DataLoader'], 'tracking': ['mlflow', 'None'], 'tracking_uri': '', 'tracking_experiment_name': '', 'segmentation_spleen': {'name': 'train_01', 'pretrained': True, 'device': 'cuda', 'max_epochs': 50, 'early_stop_patience': -1, 'val_split': 0.2, 'train_batch_size': 1, 'val_batch_size': 1, 'multi_gpu': True, 'gpus': 'all', 'dataset': ['SmartCacheDataset', 'CacheDataset', 'PersistentDataset', 'Dataset'], 'dataloader': ['ThreadDataLoader', 'DataLoader'], 'tracking': ['mlflow', 'None'], 'tracking_uri': '', 'tracking_experiment_name': ''}, 'local_rank': 0}
+[2023-02-18 14:45:20,072] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:442) - CUDA_VISIBLE_DEVICES: None
+[2023-02-18 14:45:20,072] [108583] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:45:20,076] [108583] [MainThread] [INFO] (monailabel.datastore.dicom:239) - Invalid Labels: set()
+[2023-02-18 14:45:20,076] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:447) - Distributed/Multi GPU is limited
+[2023-02-18 14:45:20,076] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:462) - Distributed Training = FALSE
+[2023-02-18 14:45:20,076] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:489) - 0 - Train Request (final): {'name': 'train_01', 'pretrained': True, 'device': 'cuda', 'max_epochs': 50, 'early_stop_patience': -1, 'val_split': 0.2, 'train_batch_size': 1, 'val_batch_size': 1, 'multi_gpu': False, 'gpus': 'all', 'dataset': ['SmartCacheDataset', 'CacheDataset', 'PersistentDataset', 'Dataset'], 'dataloader': ['ThreadDataLoader', 'DataLoader'], 'tracking': ['mlflow', 'None'], 'tracking_uri': '', 'tracking_experiment_name': '', 'model': 'segmentation_spleen', 'segmentation_spleen': {'name': 'train_01', 'pretrained': True, 'device': 'cuda', 'max_epochs': 50, 'early_stop_patience': -1, 'val_split': 0.2, 'train_batch_size': 1, 'val_batch_size': 1, 'multi_gpu': True, 'gpus': 'all', 'dataset': ['SmartCacheDataset', 'CacheDataset', 'PersistentDataset', 'Dataset'], 'dataloader': ['ThreadDataLoader', 'DataLoader'], 'tracking': ['mlflow', 'None'], 'tracking_uri': '', 'tracking_experiment_name': ''}, 'local_rank': 0, 'run_id': '20230218_144520'}
+[2023-02-18 14:45:20,076] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:622) - 0 - Using Device: cpu; IDX: None
+[2023-02-18 14:45:20,077] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:515) - Run/Output Path: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology/model/segmentation_spleen/train_01
+[2023-02-18 14:45:20,077] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:531) - Tracking: mlflow
+[2023-02-18 14:45:20,077] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:532) - Tracking URI: file:///home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology/model/segmentation_spleen/train_01/mlruns;
+[2023-02-18 14:45:20,077] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:533) - Tracking Experiment Name: segmentation_spleen; Run Name: run_20230218_144520
+[2023-02-18 14:45:20,077] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:410) - Total Records for Training: 0
+[2023-02-18 14:45:20,077] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:411) - Total Records for Validation: 0
+[2023-02-18 14:45:20,080] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:710) - 0 - Load Path /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology/model/pretrained_segmentation_spleen.pt
+[2023-02-18 14:45:20,080] [108583] [MainThread] [INFO] (monailabel.tasks.train.basic_train:264) - 0 - Records for Training: 0
+Traceback (most recent call last):
+  File "/home/ndvinh/anaconda3/envs/monailabel-dev-env/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/ndvinh/anaconda3/envs/monailabel-dev-env/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ndvinh/Desktop/KLTN/MONAILabel/monailabel/interfaces/utils/app.py", line 128, in <module>
+    run_main()
+  File "/home/ndvinh/Desktop/KLTN/MONAILabel/monailabel/interfaces/utils/app.py", line 113, in run_main
+    result = a.train(request)
+  File "/home/ndvinh/Desktop/KLTN/MONAILabel/monailabel/interfaces/app.py", line 422, in train
+    result = task(request, self.datastore())
+  File "/home/ndvinh/Desktop/KLTN/MONAILabel/monailabel/tasks/train/basic_train.py", line 463, in __call__
+    res = self.train(0, world_size, req, datalist)
+  File "/home/ndvinh/Desktop/KLTN/MONAILabel/monailabel/tasks/train/basic_train.py", line 541, in train
+    context.trainer = self._create_trainer(context)
+  File "/home/ndvinh/Desktop/KLTN/MONAILabel/monailabel/tasks/train/basic_train.py", line 693, in _create_trainer
+    train_data_loader=self.train_data_loader(context),
+  File "/home/ndvinh/Desktop/KLTN/MONAILabel/monailabel/tasks/train/basic_train.py", line 267, in train_data_loader
+    return self._dataloader(context, dataset, context.train_batch_size, num_workers, shuffle)
+  File "/home/ndvinh/Desktop/KLTN/MONAILabel/monailabel/tasks/train/basic_train.py", line 255, in _dataloader
+    return DataLoader(
+  File "/home/ndvinh/anaconda3/envs/monailabel-dev-env/lib/python3.9/site-packages/monai/data/dataloader.py", line 89, in __init__
+    super().__init__(dataset=dataset, num_workers=num_workers, **kwargs)
+  File "/home/ndvinh/anaconda3/envs/monailabel-dev-env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 344, in __init__
+    sampler = RandomSampler(dataset, generator=generator)  # type: ignore[arg-type]
+  File "/home/ndvinh/anaconda3/envs/monailabel-dev-env/lib/python3.9/site-packages/torch/utils/data/sampler.py", line 107, in __init__
+    raise ValueError("num_samples should be a positive integer "
+ValueError: num_samples should be a positive integer value, but got num_samples=0
+[2023-02-18 14:45:20,450] [101256] [ThreadPoolExecutor-2_0] [INFO] (monailabel.utils.async_tasks.utils:83) - Return code: 1
+[2023-02-18 14:45:26,536] [101256] [MainThread] [INFO] (monailabel.utils.async_tasks.utils:120) - Kill background task for train
+[2023-02-18 14:45:32,506] [101256] [MainThread] [INFO] (monailabel.endpoints.activelearning:43) - Active Learning Request: {'strategy': 'random'}
+[2023-02-18 14:45:32,506] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:170) - Total Series (with seg): 0
+
+[2023-02-18 14:45:32,507] [101256] [MainThread] [INFO] (monailabel.tasks.activelearning.random:47) - Random: Selected Image: 1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734; Weight: 1676706332
+[2023-02-18 14:45:32,507] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734
+[2023-02-18 14:45:32,507] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734
+[2023-02-18 14:45:32,508] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:45:32,524] [101256] [MainThread] [INFO] (dicomweb_client.web:2246) - retrieve series "1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734" of study "1.3.6.1.4.1.14519.5.2.1.3023.4012.153602188520630088008272568572"
+[2023-02-18 14:45:32,573] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:111) - Time to download: 0.06570267677307129 (sec)
+[2023-02-18 14:45:32,585] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:56) - Image size: (512, 512, 1)
+[2023-02-18 14:45:32,607] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:60) - dicom_to_nifti latency : 0.03325510025024414 (sec)
+[2023-02-18 14:45:32,607] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:45:32,612] [101256] [MainThread] [INFO] (monailabel.datastore.local:438) - Adding Image: 1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734 => /tmp/tmppb6w923r.nii.gz
+[2023-02-18 14:45:32,614] [101256] [MainThread] [INFO] (monailabel.endpoints.activelearning:59) - Next sample: {'id': '1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734', 'weight': 1676706332, 'path': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734.nii.gz', 'SeriesInstanceUID': '1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734', 'StudyDate': '19970320', 'StudyTime': '114932.000000', 'Modality': 'CT', 'RetrieveURL': 'http://127.0.0.1/dicom-web/studies/1.3.6.1.4.1.14519.5.2.1.3023.4012.153602188520630088008272568572/series/1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734', 'PatientID': 'TCGA-60-2715', 'StudyInstanceUID': '1.3.6.1.4.1.14519.5.2.1.3023.4012.153602188520630088008272568572', 'ts': 1676706332, 'name': '1.3.6.1.4.1.14519.5.2.1.3023.4012.154470741269083988898569715734.nii.gz'}
+[2023-02-18 14:45:32,666] [101256] [Thread-1] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 14:49:14,863] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:49:15,000] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:49:15,002] [101256] [MainThread] [INFO] (monailabel.utils.async_tasks.task:41) - Train request: {'model': 'segmentation_spleen', 'name': 'train_01', 'pretrained': True, 'device': 'cuda', 'max_epochs': 50, 'early_stop_patience': -1, 'val_split': 0.2, 'train_batch_size': 1, 'val_batch_size': 1, 'multi_gpu': True, 'gpus': 'all', 'dataset': ['SmartCacheDataset', 'CacheDataset', 'PersistentDataset', 'Dataset'], 'dataloader': ['ThreadDataLoader', 'DataLoader'], 'tracking': ['mlflow', 'None'], 'tracking_uri': '', 'tracking_experiment_name': '', 'segmentation_spleen': {'name': 'train_01', 'pretrained': True, 'device': 'cuda', 'max_epochs': 50, 'early_stop_patience': -1, 'val_split': 0.2, 'train_batch_size': 1, 'val_batch_size': 1, 'multi_gpu': True, 'gpus': 'all', 'dataset': ['SmartCacheDataset', 'CacheDataset', 'PersistentDataset', 'Dataset'], 'dataloader': ['ThreadDataLoader', 'DataLoader'], 'tracking': ['mlflow', 'None'], 'tracking_uri': '', 'tracking_experiment_name': ''}}
+[2023-02-18 14:49:15,003] [101256] [ThreadPoolExecutor-2_0] [INFO] (monailabel.utils.async_tasks.utils:49) - Before:: /home/ndvinh/Desktop/KLTN/MONAILabel:
+[2023-02-18 14:49:15,003] [101256] [ThreadPoolExecutor-2_0] [INFO] (monailabel.utils.async_tasks.utils:53) - After:: /home/ndvinh/Desktop/KLTN/MONAILabel:
+[2023-02-18 14:49:15,003] [101256] [ThreadPoolExecutor-2_0] [INFO] (monailabel.utils.async_tasks.utils:65) - COMMAND:: /home/ndvinh/anaconda3/envs/monailabel-dev-env/bin/python -m monailabel.interfaces.utils.app -m train -r {"model":"segmentation_spleen","name":"train_01","pretrained":true,"device":"cuda","max_epochs":50,"early_stop_patience":-1,"val_split":0.2,"train_batch_size":1,"val_batch_size":1,"multi_gpu":true,"gpus":"all","dataset":["SmartCacheDataset","CacheDataset","PersistentDataset","Dataset"],"dataloader":["ThreadDataLoader","DataLoader"],"tracking":["mlflow","None"],"tracking_uri":"","tracking_experiment_name":"","segmentation_spleen":{"name":"train_01","pretrained":true,"device":"cuda","max_epochs":50,"early_stop_patience":-1,"val_split":0.2,"train_batch_size":1,"val_batch_size":1,"multi_gpu":true,"gpus":"all","dataset":["SmartCacheDataset","CacheDataset","PersistentDataset","Dataset"],"dataloader":["ThreadDataLoader","DataLoader"],"tracking":["mlflow","None"],"tracking_uri":"","tracking_experiment_name":""}}
+[2023-02-18 14:49:15,151] [108853] [MainThread] [INFO] (__main__:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-02-18 14:49:15,692] [101256] [MainThread] [INFO] (monailabel.utils.async_tasks.utils:120) - Kill background task for train
+[2023-02-18 14:49:15,698] [101256] [MainThread] [INFO] (monailabel.utils.async_tasks.utils:129) - Kill:: Process pid is 108853
+[2023-02-18 14:49:15,698] [101256] [MainThread] [INFO] (monailabel.utils.async_tasks.utils:133) - Killed background process: 108853
+[2023-02-18 14:49:15,710] [101256] [ThreadPoolExecutor-2_0] [INFO] (monailabel.utils.async_tasks.utils:83) - Return code: -9
+[2023-02-18 14:50:03,714] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:100) - Saving Label for 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for tag: final by admin
+[2023-02-18 14:50:03,801] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:111) - Save Label params: {"label_info":[{"id":"0+1","labelmapIndex":0,"segmentIndex":1,"color":[214,131,230,255],"meta":{"SegmentedPropertyCategoryCodeSequence":{"CodeValue":"T-D0050","CodingSchemeDesignator":"SRT","CodeMeaning":"Tissue"},"SegmentNumber":1,"SegmentLabel":"generic","SegmentDescription":"generic tissue seg","SegmentAlgorithmType":"SEMIAUTOMATIC","SegmentAlgorithmName":"MONAI","SegmentedPropertyTypeCodeSequence":{"CodeValue":"T-D0050","CodingSchemeDesignator":"SRT","CodeMeaning":"Tissue"}},"name":"generic","description":"generic tissue seg"}]}
+[2023-02-18 14:50:03,801] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:176) - Input - Image Id: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:03,801] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:177) - Input - Label File: /tmp/tmpyfjal35m.bin
+[2023-02-18 14:50:03,801] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:178) - Input - Label Tag: final
+[2023-02-18 14:50:03,802] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:179) - Input - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'generic', 'description': 'generic tissue seg'}]}
+[2023-02-18 14:50:03,802] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:03,802] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:03,802] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:50:03,807] [101256] [MainThread] [INFO] (dicomweb_client.web:2246) - retrieve series "1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423" of study "1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408"
+[2023-02-18 14:50:11,650] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:111) - Time to download: 7.848377466201782 (sec)
+[2023-02-18 14:50:11,955] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:56) - Image size: (512, 512, 301)
+[2023-02-18 14:50:20,675] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:60) - dicom_to_nifti latency : 9.021420955657959 (sec)
+[2023-02-18 14:50:20,681] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:50:20,685] [101256] [MainThread] [INFO] (monailabel.datastore.local:438) - Adding Image: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => /tmp/tmpamlh1wh3.nii.gz
+[2023-02-18 14:50:20,848] [101256] [Thread-1] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 14:50:23,535] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 301])
+[2023-02-18 14:50:23,535] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (78905344,)
+[2023-02-18 14:50:23,535] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 301)
+[2023-02-18 14:50:23,684] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 2.936511993408203 (sec)
+[2023-02-18 14:50:23,692] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:189) - Label File: /tmp/tmp1d6_w83x.nii.gz
+[2023-02-18 14:50:26,430] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:141) - {
+  "ContentCreatorName": "Reader1",
+  "ClinicalTrialSeriesID": "Session1",
+  "ClinicalTrialTimePointID": "1",
+  "SeriesDescription": "Segmentation",
+  "SeriesNumber": "300",
+  "InstanceNumber": "1",
+  "segmentAttributes": [
+    []
+  ],
+  "ContentLabel": "SEGMENTATION",
+  "ContentDescription": "MONAI Label - Image segmentation",
+  "ClinicalTrialCoordinatingCenterName": "MONAI",
+  "BodyPartExamined": ""
+}
+[2023-02-18 14:50:26,430] [101256] [MainThread] [ERROR] (monailabel.datastore.utils.convert:143) - Missing Attributes/Empty Label provided
+[2023-02-18 14:50:26,990] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:100) - Saving Label for 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for tag: final by admin
+[2023-02-18 14:50:27,083] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:111) - Save Label params: {"label_info":[{"id":"0+1","labelmapIndex":0,"segmentIndex":1,"color":[214,131,230,255],"meta":{"SegmentedPropertyCategoryCodeSequence":{"CodeValue":"T-D0050","CodingSchemeDesignator":"SRT","CodeMeaning":"Tissue"},"SegmentNumber":1,"SegmentLabel":"generic","SegmentDescription":"generic tissue seg","SegmentAlgorithmType":"SEMIAUTOMATIC","SegmentAlgorithmName":"MONAI","SegmentedPropertyTypeCodeSequence":{"CodeValue":"T-D0050","CodingSchemeDesignator":"SRT","CodeMeaning":"Tissue"}},"name":"generic","description":"generic tissue seg"}]}
+[2023-02-18 14:50:27,083] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:176) - Input - Image Id: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:27,083] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:177) - Input - Label File: /tmp/tmphsk2x22_.bin
+[2023-02-18 14:50:27,083] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:178) - Input - Label Tag: final
+[2023-02-18 14:50:27,083] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:179) - Input - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'generic', 'description': 'generic tissue seg'}]}
+[2023-02-18 14:50:27,083] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:27,083] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:29,462] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 301])
+[2023-02-18 14:50:29,462] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (78905344,)
+[2023-02-18 14:50:29,462] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 301)
+[2023-02-18 14:50:29,635] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 2.551819086074829 (sec)
+[2023-02-18 14:50:29,644] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:189) - Label File: /tmp/tmplqvpi2yh.nii.gz
+[2023-02-18 14:50:32,604] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:141) - {
+  "ContentCreatorName": "Reader1",
+  "ClinicalTrialSeriesID": "Session1",
+  "ClinicalTrialTimePointID": "1",
+  "SeriesDescription": "Segmentation",
+  "SeriesNumber": "300",
+  "InstanceNumber": "1",
+  "segmentAttributes": [
+    []
+  ],
+  "ContentLabel": "SEGMENTATION",
+  "ContentDescription": "MONAI Label - Image segmentation",
+  "ClinicalTrialCoordinatingCenterName": "MONAI",
+  "BodyPartExamined": ""
+}
+[2023-02-18 14:50:32,605] [101256] [MainThread] [ERROR] (monailabel.datastore.utils.convert:143) - Missing Attributes/Empty Label provided
+[2023-02-18 14:50:32,761] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:100) - Saving Label for 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for tag: final by admin
+[2023-02-18 14:50:32,873] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:111) - Save Label params: {"label_info":[{"id":"0+1","labelmapIndex":0,"segmentIndex":1,"color":[214,131,230,255],"meta":{"SegmentedPropertyCategoryCodeSequence":{"CodeValue":"T-D0050","CodingSchemeDesignator":"SRT","CodeMeaning":"Tissue"},"SegmentNumber":1,"SegmentLabel":"generic","SegmentDescription":"generic tissue seg","SegmentAlgorithmType":"SEMIAUTOMATIC","SegmentAlgorithmName":"MONAI","SegmentedPropertyTypeCodeSequence":{"CodeValue":"T-D0050","CodingSchemeDesignator":"SRT","CodeMeaning":"Tissue"}},"name":"generic","description":"generic tissue seg"}]}
+[2023-02-18 14:50:32,873] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:176) - Input - Image Id: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:32,873] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:177) - Input - Label File: /tmp/tmpwa3ywkgm.bin
+[2023-02-18 14:50:32,873] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:178) - Input - Label Tag: final
+[2023-02-18 14:50:32,873] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:179) - Input - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'generic', 'description': 'generic tissue seg'}]}
+[2023-02-18 14:50:32,873] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:32,874] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:35,242] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 301])
+[2023-02-18 14:50:35,242] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (78905344,)
+[2023-02-18 14:50:35,242] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 301)
+[2023-02-18 14:50:35,359] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 2.485198974609375 (sec)
+[2023-02-18 14:50:35,366] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:189) - Label File: /tmp/tmp1r_aggvn.nii.gz
+[2023-02-18 14:50:38,116] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:102) - 0 => 3 => generic
+[2023-02-18 14:50:38,116] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:141) - {
+  "ContentCreatorName": "Reader1",
+  "ClinicalTrialSeriesID": "Session1",
+  "ClinicalTrialTimePointID": "1",
+  "SeriesDescription": "Segmentation",
+  "SeriesNumber": "300",
+  "InstanceNumber": "1",
+  "segmentAttributes": [
+    [
+      {
+        "labelID": 3,
+        "SegmentLabel": "generic",
+        "SegmentDescription": "generic tissue seg",
+        "SegmentAlgorithmType": "AUTOMATIC",
+        "SegmentAlgorithmName": "MONAILABEL",
+        "SegmentedPropertyCategoryCodeSequence": {
+          "CodeValue": "123037004",
+          "CodingSchemeDesignator": "SCT",
+          "CodeMeaning": "Anatomical Structure"
+        },
+        "SegmentedPropertyTypeCodeSequence": {
+          "CodeValue": "78961009",
+          "CodingSchemeDesignator": "SCT",
+          "CodeMeaning": "generic"
+        },
+        "recommendedDisplayRGBValue": [
+          214,
+          131,
+          230
+        ]
+      }
+    ]
+  ],
+  "ContentLabel": "SEGMENTATION",
+  "ContentDescription": "MONAI Label - Image segmentation",
+  "ClinicalTrialCoordinatingCenterName": "MONAI",
+  "BodyPartExamined": ""
+}
+[2023-02-18 14:50:38,118] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:74) - Running Command:: itkimage2segimage --inputImageList /tmp/tmp1r_aggvn.nii.gz --inputDICOMDirectory /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 --outputDICOM /tmp/tmp30vasyqd.dcm --inputMetadata /tmp/tmp4bhgeal2.json
+[2023-02-18 14:50:38,157] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - dcmqi repository URL: git@github.com:QIICR/dcmqi.git revision: ef9e227 tag: v1.2.4
+[2023-02-18 14:50:38,435] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Searching recursively /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for DICOM files
+[2023-02-18 14:50:38,455] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - 301 of 301 slices mapped to source DICOM images
+[2023-02-18 14:50:38,483] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Found 2 label(s)
+[2023-02-18 14:50:38,525] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Skipping label 0
+[2023-02-18 14:50:38,525] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Processing label 3
+[2023-02-18 14:50:38,525] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Total non-empty slices that will be encoded in SEG for label 3 is 301
+[2023-02-18 14:50:38,525] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) -  (inclusive from 0 to 301)
+[2023-02-18 14:50:38,525] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Populating segment label to generic
+[2023-02-18 14:50:38,735] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Saved segmentation as /tmp/tmp30vasyqd.dcm
+[2023-02-18 14:50:38,743] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:89) - Return code: 0
+[2023-02-18 14:50:38,744] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:170) - nifti_to_dicom_seg latency : 3.3772449493408203 (sec)
+[2023-02-18 14:50:38,846] [101256] [MainThread] [INFO] (dicomweb_client.web:2711) - store instances
+[2023-02-18 14:50:38,925] [101256] [MainThread] [INFO] (dicomweb_client.web:1570) - store data in chunks using chunked transfer encoding
+[2023-02-18 14:50:39,033] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - ISO_IR 100
+[2023-02-18 14:50:39,033] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - http://127.0.0.1/dicom-web/studies/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408
+[2023-02-18 14:50:39,033] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - []
+[2023-02-18 14:50:39,033] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - [(0008, 1150) Referenced SOP Class UID            UI: Segmentation Storage
+(0008, 1155) Referenced SOP Instance UID         UI: 1.2.276.0.7230010.3.1.4.225842493.108979.1676706638.453907
+(0008, 1190) Retrieve URL                        UR: 'http://127.0.0.1/dicom-web/studies/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408/series/1.2.276.0.7230010.3.1.3.225842493.108979.1676706638.453906/instances/1.2.276.0.7230010.3.1.4.225842493.108979.1676706638.453907']
+[2023-02-18 14:50:39,033] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:128) - Series Instance UID: 1.2.276.0.7230010.3.1.3.225842493.108979.1676706638.453906
+[2023-02-18 14:50:39,033] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:130) - Time to upload: 0.28874754905700684 (sec)
+[2023-02-18 14:50:39,035] [101256] [MainThread] [INFO] (monailabel.datastore.local:485) - Saving Label for Image: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423; Tag: final; Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'generic', 'description': 'generic tissue seg'}], 'SeriesInstanceUID': '1.2.276.0.7230010.3.1.3.225842493.108979.1676706638.453906', 'Modality': 'CT', 'PatientID': '001', 'StudyInstanceUID': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408'}
+[2023-02-18 14:50:39,035] [101256] [MainThread] [INFO] (monailabel.datastore.local:493) - Adding Label: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => final => /tmp/tmp1r_aggvn.nii.gz
+[2023-02-18 14:50:39,036] [101256] [MainThread] [INFO] (monailabel.datastore.local:509) - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'generic', 'description': 'generic tissue seg'}], 'SeriesInstanceUID': '1.2.276.0.7230010.3.1.3.225842493.108979.1676706638.453906', 'Modality': 'CT', 'PatientID': '001', 'StudyInstanceUID': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408', 'ts': 1676706639, 'name': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423.nii.gz'}
+[2023-02-18 14:50:39,037] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:209) - Save completed!
+[2023-02-18 14:50:39,037] [101256] [MainThread] [INFO] (monailabel.interfaces.app:492) - New label saved for: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:39,088] [101256] [Thread-1] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 14:50:39,412] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:100) - Saving Label for 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for tag: final by admin
+[2023-02-18 14:50:39,504] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:111) - Save Label params: {"label_info":[{"id":"0+1","labelmapIndex":0,"segmentIndex":1,"color":[214,131,230,255],"meta":{"SegmentedPropertyCategoryCodeSequence":{"CodeValue":"T-D0050","CodingSchemeDesignator":"SRT","CodeMeaning":"Tissue"},"SegmentNumber":1,"SegmentLabel":"generic","SegmentDescription":"generic tissue seg","SegmentAlgorithmType":"SEMIAUTOMATIC","SegmentAlgorithmName":"MONAI","SegmentedPropertyTypeCodeSequence":{"CodeValue":"T-D0050","CodingSchemeDesignator":"SRT","CodeMeaning":"Tissue"}},"name":"generic","description":"generic tissue seg"}]}
+[2023-02-18 14:50:39,505] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:176) - Input - Image Id: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:39,505] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:177) - Input - Label File: /tmp/tmpfyont01g.bin
+[2023-02-18 14:50:39,505] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:178) - Input - Label Tag: final
+[2023-02-18 14:50:39,505] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:179) - Input - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'generic', 'description': 'generic tissue seg'}]}
+[2023-02-18 14:50:39,505] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:39,505] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:50:41,907] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 301])
+[2023-02-18 14:50:41,908] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (78905344,)
+[2023-02-18 14:50:41,908] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 301)
+[2023-02-18 14:50:42,063] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 2.557696580886841 (sec)
+[2023-02-18 14:50:42,064] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:189) - Label File: /tmp/tmp0_pgkv2o.nii.gz
+[2023-02-18 14:50:44,700] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:102) - 0 => 3 => generic
+[2023-02-18 14:50:44,701] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:141) - {
+  "ContentCreatorName": "Reader1",
+  "ClinicalTrialSeriesID": "Session1",
+  "ClinicalTrialTimePointID": "1",
+  "SeriesDescription": "Segmentation",
+  "SeriesNumber": "300",
+  "InstanceNumber": "1",
+  "segmentAttributes": [
+    [
+      {
+        "labelID": 3,
+        "SegmentLabel": "generic",
+        "SegmentDescription": "generic tissue seg",
+        "SegmentAlgorithmType": "AUTOMATIC",
+        "SegmentAlgorithmName": "MONAILABEL",
+        "SegmentedPropertyCategoryCodeSequence": {
+          "CodeValue": "123037004",
+          "CodingSchemeDesignator": "SCT",
+          "CodeMeaning": "Anatomical Structure"
+        },
+        "SegmentedPropertyTypeCodeSequence": {
+          "CodeValue": "78961009",
+          "CodingSchemeDesignator": "SCT",
+          "CodeMeaning": "generic"
+        },
+        "recommendedDisplayRGBValue": [
+          214,
+          131,
+          230
+        ]
+      }
+    ]
+  ],
+  "ContentLabel": "SEGMENTATION",
+  "ContentDescription": "MONAI Label - Image segmentation",
+  "ClinicalTrialCoordinatingCenterName": "MONAI",
+  "BodyPartExamined": ""
+}
+[2023-02-18 14:50:44,701] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:74) - Running Command:: itkimage2segimage --inputImageList /tmp/tmp0_pgkv2o.nii.gz --inputDICOMDirectory /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 --outputDICOM /tmp/tmpcipy4zmn.dcm --inputMetadata /tmp/tmppwsy2_a_.json
+[2023-02-18 14:50:44,723] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - dcmqi repository URL: git@github.com:QIICR/dcmqi.git revision: ef9e227 tag: v1.2.4
+[2023-02-18 14:50:45,011] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Searching recursively /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for DICOM files
+[2023-02-18 14:50:45,029] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - 301 of 301 slices mapped to source DICOM images
+[2023-02-18 14:50:45,044] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Found 2 label(s)
+[2023-02-18 14:50:45,080] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Skipping label 0
+[2023-02-18 14:50:45,080] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Processing label 3
+[2023-02-18 14:50:45,080] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Total non-empty slices that will be encoded in SEG for label 3 is 301
+[2023-02-18 14:50:45,080] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) -  (inclusive from 0 to 301)
+[2023-02-18 14:50:45,080] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Populating segment label to generic
+[2023-02-18 14:50:45,278] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Saved segmentation as /tmp/tmpcipy4zmn.dcm
+[2023-02-18 14:50:45,286] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:89) - Return code: 0
+[2023-02-18 14:50:45,287] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:170) - nifti_to_dicom_seg latency : 3.222136974334717 (sec)
+[2023-02-18 14:50:45,386] [101256] [MainThread] [INFO] (dicomweb_client.web:2711) - store instances
+[2023-02-18 14:50:45,454] [101256] [MainThread] [INFO] (dicomweb_client.web:1570) - store data in chunks using chunked transfer encoding
+[2023-02-18 14:50:45,555] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - ISO_IR 100
+[2023-02-18 14:50:45,555] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - http://127.0.0.1/dicom-web/studies/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408
+[2023-02-18 14:50:45,555] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - []
+[2023-02-18 14:50:45,555] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - [(0008, 1150) Referenced SOP Class UID            UI: Segmentation Storage
+(0008, 1155) Referenced SOP Instance UID         UI: 1.2.276.0.7230010.3.1.4.225842493.109017.1676706645.28327
+(0008, 1190) Retrieve URL                        UR: 'http://127.0.0.1/dicom-web/studies/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408/series/1.2.276.0.7230010.3.1.3.225842493.109017.1676706645.28326/instances/1.2.276.0.7230010.3.1.4.225842493.109017.1676706645.28327']
+[2023-02-18 14:50:45,556] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:128) - Series Instance UID: 1.2.276.0.7230010.3.1.3.225842493.109017.1676706645.28326
+[2023-02-18 14:50:45,556] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:130) - Time to upload: 0.2683725357055664 (sec)
+[2023-02-18 14:50:45,557] [101256] [MainThread] [INFO] (monailabel.datastore.local:485) - Saving Label for Image: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423; Tag: final; Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'generic', 'description': 'generic tissue seg'}], 'SeriesInstanceUID': '1.2.276.0.7230010.3.1.3.225842493.109017.1676706645.28326', 'Modality': 'CT', 'PatientID': '001', 'StudyInstanceUID': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408'}
+[2023-02-18 14:50:45,557] [101256] [MainThread] [INFO] (monailabel.datastore.local:493) - Adding Label: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => final => /tmp/tmp0_pgkv2o.nii.gz
+[2023-02-18 14:50:45,558] [101256] [MainThread] [INFO] (monailabel.datastore.local:509) - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'generic', 'description': 'generic tissue seg'}], 'SeriesInstanceUID': '1.2.276.0.7230010.3.1.3.225842493.109017.1676706645.28326', 'Modality': 'CT', 'PatientID': '001', 'StudyInstanceUID': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408', 'ts': 1676706645, 'name': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423.nii.gz'}
+[2023-02-18 14:50:45,559] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:209) - Save completed!
+[2023-02-18 14:50:45,559] [101256] [MainThread] [INFO] (monailabel.interfaces.app:492) - New label saved for: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:51:45,466] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:51:45,466] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:51:47,739] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 301])
+[2023-02-18 14:51:47,739] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (78905344,)
+[2023-02-18 14:51:47,739] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 301)
+[2023-02-18 14:51:47,858] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 2.3913002014160156 (sec)
+[2023-02-18 14:51:47,859] [101256] [MainThread] [INFO] (monailabel.endpoints.infer:160) - Infer Request: {'model': 'Histogram+GraphCut', 'image': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423', 'label': '/tmp/tmp1t92k8_a.nii.gz', 'num_bins': 64, 'lamda': 1, 'sigma': 0.1, 'device': ['cpu'], 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False}
+[2023-02-18 14:51:47,859] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:51:47,859] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:51:47,859] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:279) - Infer Request (final): {'num_bins': 64, 'lamda': 1, 'sigma': 0.1, 'device': 'cpu', 'model': 'Histogram+GraphCut', 'image': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423.nii.gz', 'label': '/tmp/tmp1t92k8_a.nii.gz', 'label_info': [{'id': 1, 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [226, 239, 131, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 1, 'SegmentLabel': 'main_scribbles', 'SegmentDescription': 'main segmentation volume for scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'main_scribbles', 'description': 'main segmentation volume for scribbles'}, {'id': 2, 'labelmapIndex': 1, 'segmentIndex': 2, 'color': [255, 0, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 2, 'SegmentLabel': 'background_scribbles', 'SegmentDescription': 'background scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'background_scribbles', 'description': 'background scribbles'}, {'id': 3, 'labelmapIndex': 1, 'segmentIndex': 3, 'color': [0, 255, 0, 255], 'meta': {'SegmentedPropertyCategoryCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}, 'SegmentNumber': 3, 'SegmentLabel': 'foreground_scribbles', 'SegmentDescription': 'foreground scribbles', 'SegmentAlgorithmType': 'SEMIAUTOMATIC', 'SegmentAlgorithmName': 'MONAI', 'SegmentedPropertyTypeCodeSequence': {'CodeValue': 'T-D0050', 'CodingSchemeDesignator': 'SRT', 'CodeMeaning': 'Tissue'}}, 'name': 'foreground_scribbles', 'description': 'foreground scribbles'}], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False, 'description': 'A post processing step with histogram-based GraphCut for Generic segmentation'}
+[2023-02-18 14:51:47,860] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - PRE - Run Transform(s)
+[2023-02-18 14:51:47,860] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - PRE - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path']
+[2023-02-18 14:51:51,303] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (LoadImaged): Time: 3.4428; image: torch.Size([512, 512, 301])(torch.float32); label: torch.Size([512, 512, 301])(torch.float32)
+[2023-02-18 14:51:51,312] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureChannelFirstd): Time: 0.0091; image: torch.Size([1, 512, 512, 301])(torch.float32); label: torch.Size([1, 512, 512, 301])(torch.float32)
+[2023-02-18 14:51:51,312] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 14:51:51,313] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 14:51:51,445] [101256] [MainThread] [INFO] (monailabel.scribbles.transforms:121) - Scribbles: (1, 512, 512, 301)
+[2023-02-18 14:51:51,494] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (AddBackgroundScribblesFromROId): Time: 0.1814; image: torch.Size([1, 512, 512, 301])(torch.float32); label: torch.Size([1, 512, 512, 301])(torch.float32)
+[2023-02-18 14:51:51,772] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (Spacingd): Time: 0.2778; image: torch.Size([1, 167, 167, 61])(torch.float32); label: torch.Size([1, 167, 167, 61])(torch.float32)
+[2023-02-18 14:51:51,783] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (ScaleIntensityRanged): Time: 0.0111; image: torch.Size([1, 167, 167, 61])(torch.float32); label: torch.Size([1, 167, 167, 61])(torch.float32)
+[2023-02-18 14:51:51,784] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:471) - Inferer:: cpu => Compose => {'transforms': (<monailabel.scribbles.transforms.MakeLikelihoodFromScribblesHistogramd object at 0x7f3dc5dead90>,), 'map_items': True, 'unpack_items': False, 'log_stats': False, 'R': RandomState(MT19937) at 0x7F3E9F438C40}
+[2023-02-18 14:51:51,784] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:420) - Infer model path: None
+[2023-02-18 14:51:51,784] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - INF - Run Inferer(s)
+[2023-02-18 14:51:51,784] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - INF - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'label_meta_dict', 'latencies']
+[2023-02-18 14:51:51,784] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 14:51:51,784] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 14:51:51,820] [101256] [MainThread] [INFO] (monailabel.scribbles.transforms:57) - found non normalized logits, normalizing using Softmax
+[2023-02-18 14:51:51,829] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - INF - Inferer (MakeLikelihoodFromScribblesHistogramd): Time: 0.0449; image: torch.Size([1, 167, 167, 61])(torch.float32); label: torch.Size([1, 167, 167, 61])(torch.float32)
+[2023-02-18 14:51:51,830] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - POST - Run Transform(s)
+[2023-02-18 14:51:51,830] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - POST - Input Keys: ['num_bins', 'lamda', 'sigma', 'device', 'model', 'image', 'label', 'label_info', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'label_meta_dict', 'latencies', 'prob_meta_dict', 'prob']
+[2023-02-18 14:51:51,830] [101256] [MainThread] [INFO] (root:83) - Loading background scribbles labels from: background_scribbles with index: 2
+[2023-02-18 14:51:51,830] [101256] [MainThread] [INFO] (root:88) - Loading foreground scribbles labels from: foreground_scribbles with index: 3
+[2023-02-18 14:51:51,839] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (MakeISegUnaryd): Time: 0.0089; image: torch.Size([1, 167, 167, 61])(torch.float32); label: torch.Size([1, 167, 167, 61])(torch.float32)
+[2023-02-18 14:51:52,043] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (ApplyGraphCutOptimisationd): Time: 0.2039; image: torch.Size([1, 167, 167, 61])(torch.float32); label: torch.Size([1, 167, 167, 61])(torch.float32); pred: (1, 167, 167, 61)(float32)
+[2023-02-18 14:51:52,144] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Restored): Time: 0.1011; image: torch.Size([1, 167, 167, 61])(torch.float32); label: torch.Size([1, 167, 167, 61])(torch.float32); pred: torch.Size([512, 512, 301])(torch.float32)
+[2023-02-18 14:51:52,173] [101256] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (BoundingBoxd): Time: 0.0289; image: torch.Size([1, 167, 167, 61])(torch.float32); label: torch.Size([1, 167, 167, 61])(torch.float32); pred: torch.Size([512, 512, 301])(torch.float32)
+[2023-02-18 14:51:52,174] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:571) - Writing Result...
+[2023-02-18 14:51:52,174] [101256] [MainThread] [INFO] (monailabel.transform.writer:189) - Result ext: .nrrd; write_to_file: True; dtype: uint16
+[2023-02-18 14:51:52,660] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:334) - ++ Latencies => Total: 4.8009; Pre: 3.9239; Inferer: 0.0459; Invert: 0.0000; Post: 0.3442; Write: 0.4865
+[2023-02-18 14:51:52,660] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:358) - Result File: /tmp/tmpilr50dmo.nrrd
+[2023-02-18 14:51:52,660] [101256] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:359) - Result Json Keys: ['bbox', 'label_names', 'latencies']
+[2023-02-18 14:54:30,213] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:54:30,364] [101256] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-02-18 14:54:30,436] [101256] [MainThread] [INFO] (dicomweb_client.web:2403) - retrieve metadata of series "1.2.276.0.7230010.3.1.3.225842493.109017.1676706645.28326" of study "1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408"
+[2023-02-18 14:54:30,577] [101256] [MainThread] [INFO] (dicomweb_client.web:2403) - retrieve metadata of series "1.2.276.0.7230010.3.1.3.225842493.108979.1676706638.453906" of study "1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408"
+[2023-02-18 14:54:33,493] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:100) - Saving Label for 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for tag: final by admin
+[2023-02-18 14:54:33,585] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:111) - Save Label params: {"label_info":[{"id":"0+1","labelmapIndex":0,"segmentIndex":1,"color":[214,131,230,255],"meta":{"_vrMap":{},"SegmentedPropertyCategoryCodeSequence":{"_vrMap":{},"CodeValue":"123037004","CodingSchemeDesignator":"SCT","CodeMeaning":"Anatomical Structure"},"SegmentNumber":1,"SegmentLabel":"generic","SegmentDescription":"generic tissue seg","SegmentAlgorithmType":"AUTOMATIC","SegmentAlgorithmName":"MONAILABEL","RecommendedDisplayCIELabValue":[43715,45102,23314],"SegmentedPropertyTypeCodeSequence":{"_vrMap":{},"CodeValue":"78961009","CodingSchemeDesignator":"SCT","CodeMeaning":"generic"}},"name":"generic","description":"generic tissue seg"},{"id":"1+1","labelmapIndex":1,"segmentIndex":1,"color":[214,131,230,255],"meta":{"_vrMap":{},"SegmentedPropertyCategoryCodeSequence":{"_vrMap":{},"CodeValue":"123037004","CodingSchemeDesignator":"SCT","CodeMeaning":"Anatomical Structure"},"SegmentNumber":1,"SegmentLabel":"generic","SegmentDescription":"generic tissue seg","SegmentAlgorithmType":"AUTOMATIC","SegmentAlgorithmName":"MONAILABEL","RecommendedDisplayCIELabValue":[43715,45102,23314],"SegmentedPropertyTypeCodeSequence":{"_vrMap":{},"CodeValue":"78961009","CodingSchemeDesignator":"SCT","CodeMeaning":"generic"}},"name":"generic","description":"generic tissue seg"}]}
+[2023-02-18 14:54:33,586] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:176) - Input - Image Id: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:54:33,586] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:177) - Input - Label File: /tmp/tmp5l6l158_.bin
+[2023-02-18 14:54:33,586] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:178) - Input - Label Tag: final
+[2023-02-18 14:54:33,586] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:179) - Input - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}, {'id': '1+1', 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}]}
+[2023-02-18 14:54:33,586] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:54:33,586] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:54:36,092] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 301])
+[2023-02-18 14:54:36,092] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (78905344,)
+[2023-02-18 14:54:36,092] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 301)
+[2023-02-18 14:54:36,215] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 2.629091739654541 (sec)
+[2023-02-18 14:54:36,217] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:189) - Label File: /tmp/tmpk7jmuf93.nii.gz
+[2023-02-18 14:54:38,686] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:102) - 0 => 1 => generic
+[2023-02-18 14:54:38,686] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:141) - {
+  "ContentCreatorName": "Reader1",
+  "ClinicalTrialSeriesID": "Session1",
+  "ClinicalTrialTimePointID": "1",
+  "SeriesDescription": "Segmentation",
+  "SeriesNumber": "300",
+  "InstanceNumber": "1",
+  "segmentAttributes": [
+    [
+      {
+        "labelID": 1,
+        "SegmentLabel": "generic",
+        "SegmentDescription": "generic tissue seg",
+        "SegmentAlgorithmType": "AUTOMATIC",
+        "SegmentAlgorithmName": "MONAILABEL",
+        "SegmentedPropertyCategoryCodeSequence": {
+          "CodeValue": "123037004",
+          "CodingSchemeDesignator": "SCT",
+          "CodeMeaning": "Anatomical Structure"
+        },
+        "SegmentedPropertyTypeCodeSequence": {
+          "CodeValue": "78961009",
+          "CodingSchemeDesignator": "SCT",
+          "CodeMeaning": "generic"
+        },
+        "recommendedDisplayRGBValue": [
+          214,
+          131,
+          230
+        ]
+      }
+    ]
+  ],
+  "ContentLabel": "SEGMENTATION",
+  "ContentDescription": "MONAI Label - Image segmentation",
+  "ClinicalTrialCoordinatingCenterName": "MONAI",
+  "BodyPartExamined": ""
+}
+[2023-02-18 14:54:38,687] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:74) - Running Command:: itkimage2segimage --inputImageList /tmp/tmpk7jmuf93.nii.gz --inputDICOMDirectory /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 --outputDICOM /tmp/tmpv64_3q2n.dcm --inputMetadata /tmp/tmpdan8tdig.json
+[2023-02-18 14:54:38,704] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - dcmqi repository URL: git@github.com:QIICR/dcmqi.git revision: ef9e227 tag: v1.2.4
+[2023-02-18 14:54:38,957] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Searching recursively /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for DICOM files
+[2023-02-18 14:54:38,973] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - 301 of 301 slices mapped to source DICOM images
+[2023-02-18 14:54:38,987] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Found 2 label(s)
+[2023-02-18 14:54:39,022] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Skipping label 0
+[2023-02-18 14:54:39,022] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Processing label 1
+[2023-02-18 14:54:39,022] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Total non-empty slices that will be encoded in SEG for label 1 is 301
+[2023-02-18 14:54:39,022] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) -  (inclusive from 0 to 301)
+[2023-02-18 14:54:39,022] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Populating segment label to generic
+[2023-02-18 14:54:39,195] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Saved segmentation as /tmp/tmpv64_3q2n.dcm
+[2023-02-18 14:54:39,202] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:89) - Return code: 0
+[2023-02-18 14:54:39,202] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:170) - nifti_to_dicom_seg latency : 2.9841573238372803 (sec)
+[2023-02-18 14:54:39,296] [101256] [MainThread] [INFO] (dicomweb_client.web:2711) - store instances
+[2023-02-18 14:54:39,362] [101256] [MainThread] [INFO] (dicomweb_client.web:1570) - store data in chunks using chunked transfer encoding
+[2023-02-18 14:54:39,436] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - ISO_IR 100
+[2023-02-18 14:54:39,436] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - http://127.0.0.1/dicom-web/studies/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408
+[2023-02-18 14:54:39,436] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - []
+[2023-02-18 14:54:39,436] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - [(0008, 1150) Referenced SOP Class UID            UI: Segmentation Storage
+(0008, 1155) Referenced SOP Instance UID         UI: 1.2.276.0.7230010.3.1.4.225842493.109331.1676706878.972706
+(0008, 1190) Retrieve URL                        UR: 'http://127.0.0.1/dicom-web/studies/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408/series/1.2.276.0.7230010.3.1.3.225842493.109331.1676706878.972705/instances/1.2.276.0.7230010.3.1.4.225842493.109331.1676706878.972706']
+[2023-02-18 14:54:39,436] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:128) - Series Instance UID: 1.2.276.0.7230010.3.1.3.225842493.109331.1676706878.972705
+[2023-02-18 14:54:39,436] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:130) - Time to upload: 0.23371481895446777 (sec)
+[2023-02-18 14:54:39,438] [101256] [MainThread] [INFO] (monailabel.datastore.local:485) - Saving Label for Image: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423; Tag: final; Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}, {'id': '1+1', 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}], 'SeriesInstanceUID': '1.2.276.0.7230010.3.1.3.225842493.109331.1676706878.972705', 'Modality': 'CT', 'PatientID': '001', 'StudyInstanceUID': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408'}
+[2023-02-18 14:54:39,438] [101256] [MainThread] [INFO] (monailabel.datastore.local:493) - Adding Label: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => final => /tmp/tmpk7jmuf93.nii.gz
+[2023-02-18 14:54:39,440] [101256] [MainThread] [INFO] (monailabel.datastore.local:509) - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}, {'id': '1+1', 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}], 'SeriesInstanceUID': '1.2.276.0.7230010.3.1.3.225842493.109331.1676706878.972705', 'Modality': 'CT', 'PatientID': '001', 'StudyInstanceUID': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408', 'ts': 1676706879, 'name': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423.nii.gz'}
+[2023-02-18 14:54:39,440] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:209) - Save completed!
+[2023-02-18 14:54:39,441] [101256] [MainThread] [INFO] (monailabel.interfaces.app:492) - New label saved for: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:54:39,968] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:100) - Saving Label for 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for tag: final by admin
+[2023-02-18 14:54:40,054] [101256] [MainThread] [INFO] (monailabel.endpoints.datastore:111) - Save Label params: {"label_info":[{"id":"0+1","labelmapIndex":0,"segmentIndex":1,"color":[214,131,230,255],"meta":{"_vrMap":{},"SegmentedPropertyCategoryCodeSequence":{"_vrMap":{},"CodeValue":"123037004","CodingSchemeDesignator":"SCT","CodeMeaning":"Anatomical Structure"},"SegmentNumber":1,"SegmentLabel":"generic","SegmentDescription":"generic tissue seg","SegmentAlgorithmType":"AUTOMATIC","SegmentAlgorithmName":"MONAILABEL","RecommendedDisplayCIELabValue":[43715,45102,23314],"SegmentedPropertyTypeCodeSequence":{"_vrMap":{},"CodeValue":"78961009","CodingSchemeDesignator":"SCT","CodeMeaning":"generic"}},"name":"generic","description":"generic tissue seg"},{"id":"1+1","labelmapIndex":1,"segmentIndex":1,"color":[214,131,230,255],"meta":{"_vrMap":{},"SegmentedPropertyCategoryCodeSequence":{"_vrMap":{},"CodeValue":"123037004","CodingSchemeDesignator":"SCT","CodeMeaning":"Anatomical Structure"},"SegmentNumber":1,"SegmentLabel":"generic","SegmentDescription":"generic tissue seg","SegmentAlgorithmType":"AUTOMATIC","SegmentAlgorithmName":"MONAILABEL","RecommendedDisplayCIELabValue":[43715,45102,23314],"SegmentedPropertyTypeCodeSequence":{"_vrMap":{},"CodeValue":"78961009","CodingSchemeDesignator":"SCT","CodeMeaning":"generic"}},"name":"generic","description":"generic tissue seg"}]}
+[2023-02-18 14:54:40,055] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:176) - Input - Image Id: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:54:40,055] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:177) - Input - Label File: /tmp/tmp54dj8hhl.bin
+[2023-02-18 14:54:40,055] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:178) - Input - Label Tag: final
+[2023-02-18 14:54:40,055] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:179) - Input - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}, {'id': '1+1', 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}]}
+[2023-02-18 14:54:40,055] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:54:40,055] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 14:54:42,368] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:70) - Image: torch.Size([512, 512, 301])
+[2023-02-18 14:54:42,368] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:71) - Label: (78905344,)
+[2023-02-18 14:54:42,368] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:74) - Label (reshape): (512, 512, 301)
+[2023-02-18 14:54:42,482] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:83) - binary_to_image latency : 2.42695689201355 (sec)
+[2023-02-18 14:54:42,483] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:189) - Label File: /tmp/tmp0lp28_dc.nii.gz
+[2023-02-18 14:54:45,001] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:102) - 0 => 1 => generic
+[2023-02-18 14:54:45,001] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:141) - {
+  "ContentCreatorName": "Reader1",
+  "ClinicalTrialSeriesID": "Session1",
+  "ClinicalTrialTimePointID": "1",
+  "SeriesDescription": "Segmentation",
+  "SeriesNumber": "300",
+  "InstanceNumber": "1",
+  "segmentAttributes": [
+    [
+      {
+        "labelID": 1,
+        "SegmentLabel": "generic",
+        "SegmentDescription": "generic tissue seg",
+        "SegmentAlgorithmType": "AUTOMATIC",
+        "SegmentAlgorithmName": "MONAILABEL",
+        "SegmentedPropertyCategoryCodeSequence": {
+          "CodeValue": "123037004",
+          "CodingSchemeDesignator": "SCT",
+          "CodeMeaning": "Anatomical Structure"
+        },
+        "SegmentedPropertyTypeCodeSequence": {
+          "CodeValue": "78961009",
+          "CodingSchemeDesignator": "SCT",
+          "CodeMeaning": "generic"
+        },
+        "recommendedDisplayRGBValue": [
+          214,
+          131,
+          230
+        ]
+      }
+    ]
+  ],
+  "ContentLabel": "SEGMENTATION",
+  "ContentDescription": "MONAI Label - Image segmentation",
+  "ClinicalTrialCoordinatingCenterName": "MONAI",
+  "BodyPartExamined": ""
+}
+[2023-02-18 14:54:45,010] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:74) - Running Command:: itkimage2segimage --inputImageList /tmp/tmp0lp28_dc.nii.gz --inputDICOMDirectory /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 --outputDICOM /tmp/tmppoarl1un.dcm --inputMetadata /tmp/tmpemkqys_o.json
+[2023-02-18 14:54:45,027] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - dcmqi repository URL: git@github.com:QIICR/dcmqi.git revision: ef9e227 tag: v1.2.4
+[2023-02-18 14:54:45,274] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Searching recursively /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 for DICOM files
+[2023-02-18 14:54:45,290] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - 301 of 301 slices mapped to source DICOM images
+[2023-02-18 14:54:45,305] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Found 2 label(s)
+[2023-02-18 14:54:45,341] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Skipping label 0
+[2023-02-18 14:54:45,341] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Processing label 1
+[2023-02-18 14:54:45,341] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Total non-empty slices that will be encoded in SEG for label 1 is 301
+[2023-02-18 14:54:45,341] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) -  (inclusive from 0 to 301)
+[2023-02-18 14:54:45,341] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Populating segment label to generic
+[2023-02-18 14:54:45,514] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:87) - Saved segmentation as /tmp/tmppoarl1un.dcm
+[2023-02-18 14:54:45,521] [101256] [MainThread] [INFO] (monailabel.utils.others.generic:89) - Return code: 0
+[2023-02-18 14:54:45,521] [101256] [MainThread] [INFO] (monailabel.datastore.utils.convert:170) - nifti_to_dicom_seg latency : 3.037712335586548 (sec)
+[2023-02-18 14:54:45,615] [101256] [MainThread] [INFO] (dicomweb_client.web:2711) - store instances
+[2023-02-18 14:54:45,679] [101256] [MainThread] [INFO] (dicomweb_client.web:1570) - store data in chunks using chunked transfer encoding
+[2023-02-18 14:54:45,753] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - ISO_IR 100
+[2023-02-18 14:54:45,753] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - http://127.0.0.1/dicom-web/studies/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408
+[2023-02-18 14:54:45,753] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - []
+[2023-02-18 14:54:45,753] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:122) - [(0008, 1150) Referenced SOP Class UID            UI: Segmentation Storage
+(0008, 1155) Referenced SOP Instance UID         UI: 1.2.276.0.7230010.3.1.4.225842493.109368.1676706885.290251
+(0008, 1190) Retrieve URL                        UR: 'http://127.0.0.1/dicom-web/studies/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408/series/1.2.276.0.7230010.3.1.3.225842493.109368.1676706885.290250/instances/1.2.276.0.7230010.3.1.4.225842493.109368.1676706885.290251']
+[2023-02-18 14:54:45,753] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:128) - Series Instance UID: 1.2.276.0.7230010.3.1.3.225842493.109368.1676706885.290250
+[2023-02-18 14:54:45,753] [101256] [MainThread] [INFO] (monailabel.datastore.utils.dicom:130) - Time to upload: 0.23162007331848145 (sec)
+[2023-02-18 14:54:45,755] [101256] [MainThread] [INFO] (monailabel.datastore.local:485) - Saving Label for Image: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423; Tag: final; Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}, {'id': '1+1', 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}], 'SeriesInstanceUID': '1.2.276.0.7230010.3.1.3.225842493.109368.1676706885.290250', 'Modality': 'CT', 'PatientID': '001', 'StudyInstanceUID': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408'}
+[2023-02-18 14:54:45,755] [101256] [MainThread] [INFO] (monailabel.datastore.local:493) - Adding Label: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => final => /tmp/tmp0lp28_dc.nii.gz
+[2023-02-18 14:54:45,755] [101256] [MainThread] [INFO] (monailabel.datastore.local:509) - Label Info: {'label_info': [{'id': '0+1', 'labelmapIndex': 0, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}, {'id': '1+1', 'labelmapIndex': 1, 'segmentIndex': 1, 'color': [214, 131, 230, 255], 'meta': {'_vrMap': {}, 'SegmentedPropertyCategoryCodeSequence': {'_vrMap': {}, 'CodeValue': '123037004', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'Anatomical Structure'}, 'SegmentNumber': 1, 'SegmentLabel': 'generic', 'SegmentDescription': 'generic tissue seg', 'SegmentAlgorithmType': 'AUTOMATIC', 'SegmentAlgorithmName': 'MONAILABEL', 'RecommendedDisplayCIELabValue': [43715, 45102, 23314], 'SegmentedPropertyTypeCodeSequence': {'_vrMap': {}, 'CodeValue': '78961009', 'CodingSchemeDesignator': 'SCT', 'CodeMeaning': 'generic'}}, 'name': 'generic', 'description': 'generic tissue seg'}], 'SeriesInstanceUID': '1.2.276.0.7230010.3.1.3.225842493.109368.1676706885.290250', 'Modality': 'CT', 'PatientID': '001', 'StudyInstanceUID': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273408', 'ts': 1676706885, 'name': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423.nii.gz'}
+[2023-02-18 14:54:45,756] [101256] [MainThread] [INFO] (monailabel.datastore.dicom:209) - Save completed!
+[2023-02-18 14:54:45,756] [101256] [MainThread] [INFO] (monailabel.interfaces.app:492) - New label saved for: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423 => 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-02-18 15:00:25,700] [109628] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-02-18 15:00:25,802] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 15:00:25,804] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 15:00:25,804] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 15:00:25,805] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 15:00:25,805] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 15:00:25,806] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 15:00:25,806] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 15:00:25,806] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 15:00:25,806] [109628] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 15:00:25,806] [109628] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-02-18 15:00:25,850] [109628] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-02-18 15:00:25,850] [109628] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen']
+[2023-02-18 15:00:25,850] [109628] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-02-18 15:00:25,850] [109628] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-02-18 15:00:25,850] [109628] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-02-18 15:00:25,851] [109628] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-02-18 15:00:25,851] [109628] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-02-18 15:00:25,851] [109628] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 15:00:25,851] [109628] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-02-18 15:00:25,852] [109628] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7fd5b9f14850>
+[2023-02-18 15:00:25,853] [109628] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7fd5b9f14850>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7fd5b9f147f0>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7fd5b9f358b0>}
+[2023-02-18 15:00:25,853] [109628] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7fd5b9f35910>
+[2023-02-18 15:00:25,853] [109628] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-02-18 15:00:25,853] [109628] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-02-18 15:00:25,853] [109628] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-02-18 15:00:25,853] [109628] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-02-18 15:00:25,853] [109628] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7fd5bac41940>
+[2023-02-18 15:00:25,853] [109628] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-02-18 15:42:43,422] [110869] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-02-18 15:42:43,517] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 15:42:43,519] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 15:42:43,519] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 15:42:43,520] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 15:42:43,520] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 15:42:43,520] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 15:42:43,520] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 15:42:43,521] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 15:42:43,521] [110869] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 15:42:43,521] [110869] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-02-18 15:42:43,543] [110869] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-02-18 15:42:43,543] [110869] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen']
+[2023-02-18 15:42:43,543] [110869] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-02-18 15:42:43,543] [110869] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-02-18 15:42:43,544] [110869] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-02-18 15:42:43,544] [110869] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-02-18 15:42:43,544] [110869] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-02-18 15:42:43,545] [110869] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 15:42:43,545] [110869] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7ff0d7a4ac40>
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7ff0d7a4ac40>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7ff0d7a4abe0>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7ff0d79fbca0>}
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7ff0d79fbd00>
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7ff0d8709940>
+[2023-02-18 15:42:43,546] [110869] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-02-18 15:51:06,677] [111254] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-02-18 15:51:06,774] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-02-18 15:51:06,776] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-02-18 15:51:06,776] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-02-18 15:51:06,777] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-02-18 15:51:06,777] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-02-18 15:51:06,777] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-02-18 15:51:06,777] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-02-18 15:51:06,777] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-02-18 15:51:06,777] [111254] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-02-18 15:51:06,778] [111254] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-02-18 15:51:06,800] [111254] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-02-18 15:51:06,800] [111254] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen']
+[2023-02-18 15:51:06,800] [111254] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-02-18 15:51:06,800] [111254] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-02-18 15:51:06,800] [111254] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-02-18 15:51:06,800] [111254] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-02-18 15:51:06,800] [111254] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-02-18 15:51:06,801] [111254] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-02-18 15:51:06,801] [111254] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-02-18 15:51:06,802] [111254] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f5066359670>
+[2023-02-18 15:51:06,802] [111254] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f5066359670>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7f5066359610>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7f50663736d0>}
+[2023-02-18 15:51:06,802] [111254] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7f5066373730>
+[2023-02-18 15:51:06,802] [111254] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-02-18 15:51:06,802] [111254] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-02-18 15:51:06,802] [111254] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-02-18 15:51:06,803] [111254] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-02-18 15:51:06,803] [111254] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7f5067080940>
+[2023-02-18 15:51:06,803] [111254] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-03-11 10:36:56,742] [15615] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-03-11 10:36:56,879] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-03-11 10:36:56,883] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-03-11 10:36:56,884] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-03-11 10:36:56,885] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-03-11 10:36:56,885] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-03-11 10:36:56,886] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-03-11 10:36:56,886] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-03-11 10:36:56,886] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-03-11 10:36:56,886] [15615] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-03-11 10:36:56,886] [15615] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-03-11 10:36:56,938] [15615] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-03-11 10:36:56,938] [15615] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen']
+[2023-03-11 10:36:56,939] [15615] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-03-11 10:36:56,939] [15615] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-03-11 10:36:56,939] [15615] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-03-11 10:36:56,939] [15615] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-03-11 10:36:56,939] [15615] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-03-11 10:36:56,941] [15615] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-03-11 10:36:56,941] [15615] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7effcb936700>
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7effcb936700>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7effcb9366a0>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7effcb94f760>}
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7effcb94f7c0>
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7effcc65c940>
+[2023-03-11 10:36:56,943] [15615] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-03-11 10:37:55,372] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen'}
+[2023-03-11 10:37:55,474] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-03-11 10:37:55,476] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-03-11 10:37:55,477] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-03-11 10:37:55,477] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-03-11 10:37:55,478] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-03-11 10:37:55,478] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-03-11 10:37:55,478] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-03-11 10:37:55,478] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-03-11 10:37:55,478] [15906] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-03-11 10:37:55,478] [15906] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-03-11 10:37:55,519] [15906] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-03-11 10:37:55,520] [15906] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen']
+[2023-03-11 10:37:55,520] [15906] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-03-11 10:37:55,520] [15906] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-03-11 10:37:55,521] [15906] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-03-11 10:37:55,521] [15906] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-03-11 10:37:55,521] [15906] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-03-11 10:37:55,522] [15906] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-03-11 10:37:55,522] [15906] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-03-11 10:37:55,523] [15906] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7fea598097f0>
+[2023-03-11 10:37:55,523] [15906] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7fea598097f0>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7fea59809790>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7fea59828850>}
+[2023-03-11 10:37:55,523] [15906] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7fea598288b0>
+[2023-03-11 10:37:55,523] [15906] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-03-11 10:37:55,523] [15906] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-03-11 10:37:55,523] [15906] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-03-11 10:37:55,524] [15906] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-03-11 10:37:55,524] [15906] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7fea5a534940>
+[2023-03-11 10:37:55,524] [15906] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-03-11 10:39:56,922] [15906] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-03-11 10:39:56,952] [15906] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-03-11 10:55:09,732] [15906] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-03-11 10:55:09,757] [15906] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-03-11 10:56:37,981] [15906] [MainThread] [INFO] (monailabel.endpoints.infer:160) - Infer Request: {'model': 'segmentation_spleen', 'image': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423', 'device': ['cpu'], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False}
+[2023-03-11 10:56:37,981] [15906] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-03-11 10:56:37,981] [15906] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-03-11 10:56:37,982] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:279) - Infer Request (final): {'device': 'cpu', 'model': 'segmentation_spleen', 'image': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423.nii.gz', 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False, 'description': 'A pre-trained model for volumetric (3D) segmentation of the spleen from CT image'}
+[2023-03-11 10:56:37,984] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - PRE - Run Transform(s)
+[2023-03-11 10:56:37,984] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - PRE - Input Keys: ['device', 'model', 'image', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path']
+[2023-03-11 10:56:40,271] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (LoadImaged): Time: 2.2867; image: torch.Size([512, 512, 301])(torch.float32)
+[2023-03-11 10:56:40,272] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureTyped): Time: 0.0005; image: torch.Size([512, 512, 301])(torch.float32)
+[2023-03-11 10:56:40,274] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureChannelFirstd): Time: 0.002; image: torch.Size([1, 512, 512, 301])(torch.float32)
+[2023-03-11 10:56:42,057] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (Spacingd): Time: 1.7833; image: torch.Size([1, 415, 415, 301])(torch.float32)
+[2023-03-11 10:56:42,189] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (ScaleIntensityRanged): Time: 0.1311; image: torch.Size([1, 415, 415, 301])(torch.float32)
+[2023-03-11 10:56:42,189] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:471) - Inferer:: cpu => SlidingWindowInferer => {'roi_size': (160, 160, 160), 'sw_batch_size': 1, 'overlap': 0.25, 'mode': constant, 'sigma_scale': 0.125, 'padding_mode': constant, 'cval': 0.0, 'sw_device': None, 'device': None, 'progress': False, 'cpu_thresh': None, 'roi_weight_map': None}
+[2023-03-11 10:56:42,189] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:420) - Infer model path: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology/model/pretrained_segmentation_spleen.pt
+[2023-03-11 10:56:57,572] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - POST - Run Transform(s)
+[2023-03-11 10:56:57,572] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - POST - Input Keys: ['device', 'model', 'image', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'latencies', 'pred']
+[2023-03-11 10:56:57,572] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (EnsureTyped): Time: 0.0001; image: torch.Size([1, 415, 415, 301])(torch.float32); pred: torch.Size([2, 415, 415, 301])(torch.float32)
+[2023-03-11 10:56:57,618] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Activationsd): Time: 0.0459; image: torch.Size([1, 415, 415, 301])(torch.float32); pred: torch.Size([2, 415, 415, 301])(torch.float32)
+[2023-03-11 10:57:01,222] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (AsDiscreted): Time: 3.6038; image: torch.Size([1, 415, 415, 301])(torch.float32); pred: torch.Size([1, 415, 415, 301])(torch.float32)
+[2023-03-11 10:57:01,322] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Restored): Time: 0.0991; image: torch.Size([1, 415, 415, 301])(torch.float32); pred: torch.Size([512, 512, 301])(torch.float32)
+[2023-03-11 10:57:01,332] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:571) - Writing Result...
+[2023-03-11 10:57:01,333] [15906] [MainThread] [INFO] (monailabel.transform.writer:189) - Result ext: .nrrd; write_to_file: True; dtype: uint16
+[2023-03-11 10:57:03,654] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:334) - ++ Latencies => Total: 25.6722; Pre: 4.2064; Inferer: 15.3823; Invert: 0.0000; Post: 3.7611; Write: 2.3219
+[2023-03-11 10:57:03,655] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:358) - Result File: /tmp/tmpwhly5fl9.nrrd
+[2023-03-11 10:57:03,655] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:359) - Result Json Keys: ['label_names', 'latencies']
+[2023-03-11 14:33:41,470] [15906] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-03-11 14:33:41,486] [15906] [MainThread] [INFO] (dicomweb_client.web:2203) - search for series
+[2023-03-11 14:34:01,144] [15906] [MainThread] [INFO] (monailabel.endpoints.infer:160) - Infer Request: {'model': 'segmentation_spleen', 'image': '1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423', 'device': ['cpu'], 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False}
+[2023-03-11 14:34:01,144] [15906] [MainThread] [INFO] (monailabel.datastore.dicom:78) - Image ID: 1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-03-11 14:34:01,152] [15906] [MainThread] [INFO] (monailabel.datastore.dicom:80) - Image Dir (cache): /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423
+[2023-03-11 14:34:01,154] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:279) - Infer Request (final): {'device': 'cpu', 'model': 'segmentation_spleen', 'image': '/home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35/1.2.826.0.1.3680043.8.274.1.1.225842493.107716.1676705083.273423.nii.gz', 'result_extension': '.nrrd', 'result_dtype': 'uint16', 'result_compress': False, 'description': 'A pre-trained model for volumetric (3D) segmentation of the spleen from CT image'}
+[2023-03-11 14:34:01,154] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - PRE - Run Transform(s)
+[2023-03-11 14:34:01,155] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - PRE - Input Keys: ['device', 'model', 'image', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path']
+[2023-03-11 14:34:03,539] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (LoadImaged): Time: 2.3822; image: torch.Size([512, 512, 301])(torch.float32)
+[2023-03-11 14:34:03,539] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureTyped): Time: 0.0004; image: torch.Size([512, 512, 301])(torch.float32)
+[2023-03-11 14:34:03,540] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (EnsureChannelFirstd): Time: 0.0007; image: torch.Size([1, 512, 512, 301])(torch.float32)
+[2023-03-11 14:34:05,293] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (Spacingd): Time: 1.7527; image: torch.Size([1, 415, 415, 301])(torch.float32)
+[2023-03-11 14:34:05,431] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - PRE - Transform (ScaleIntensityRanged): Time: 0.1377; image: torch.Size([1, 415, 415, 301])(torch.float32)
+[2023-03-11 14:34:05,431] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:471) - Inferer:: cpu => SlidingWindowInferer => {'roi_size': (160, 160, 160), 'sw_batch_size': 1, 'overlap': 0.25, 'mode': constant, 'sigma_scale': 0.125, 'padding_mode': constant, 'cval': 0.0, 'sw_device': None, 'device': None, 'progress': False, 'cpu_thresh': None, 'roi_weight_map': None}
+[2023-03-11 14:34:05,431] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:420) - Infer model path: /home/ndvinh/Desktop/KLTN/MONAILabel/apps/radiology/model/pretrained_segmentation_spleen.pt
+[2023-03-11 14:34:20,742] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:76) - POST - Run Transform(s)
+[2023-03-11 14:34:20,742] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:77) - POST - Input Keys: ['device', 'model', 'image', 'result_extension', 'result_dtype', 'result_compress', 'description', 'image_path', 'image_meta_dict', 'latencies', 'pred']
+[2023-03-11 14:34:20,742] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (EnsureTyped): Time: 0.0001; image: torch.Size([1, 415, 415, 301])(torch.float32); pred: torch.Size([2, 415, 415, 301])(torch.float32)
+[2023-03-11 14:34:20,796] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Activationsd): Time: 0.0539; image: torch.Size([1, 415, 415, 301])(torch.float32); pred: torch.Size([2, 415, 415, 301])(torch.float32)
+[2023-03-11 14:34:24,292] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (AsDiscreted): Time: 3.4951; image: torch.Size([1, 415, 415, 301])(torch.float32); pred: torch.Size([1, 415, 415, 301])(torch.float32)
+[2023-03-11 14:34:24,381] [15906] [MainThread] [INFO] (monailabel.interfaces.utils.transform:122) - POST - Transform (Restored): Time: 0.0893; image: torch.Size([1, 415, 415, 301])(torch.float32); pred: torch.Size([512, 512, 301])(torch.float32)
+[2023-03-11 14:34:24,391] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:571) - Writing Result...
+[2023-03-11 14:34:24,391] [15906] [MainThread] [INFO] (monailabel.transform.writer:189) - Result ext: .nrrd; write_to_file: True; dtype: uint16
+[2023-03-11 14:34:24,971] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:334) - ++ Latencies => Total: 23.8177; Pre: 4.2774; Inferer: 15.3104; Invert: 0.0000; Post: 3.6497; Write: 0.5799
+[2023-03-11 14:34:24,971] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:358) - Result File: /tmp/tmpvji3_yn2.nrrd
+[2023-03-11 14:34:24,971] [15906] [MainThread] [INFO] (monailabel.tasks.infer.basic_infer:359) - Result Json Keys: ['label_names', 'latencies']
