@@ -24,22 +24,22 @@ echo "My Dir: ${my_dir}"
 echo "Installing OHIF at: ${install_dir}"
 
 cd ${my_dir}
-rm -rf Viewers
-git clone https://github.com/OHIF/Viewers.git
+# rm -rf Viewers
+# git clone https://github.com/OHIF/Viewers.git
 cd Viewers
-git checkout 460fdeb534cd94bff55892c8e3d7100ccf8957de
+# git checkout 460fdeb534cd94bff55892c8e3d7100ccf8957de
 
 # Viewers/platform/viewer/public/config/default.js
-#git checkout -- ./platform/viewer/public/config/default.js
-sed -i "s|routerBasename: '/'|routerBasename: '/ohif/'|g" ./platform/viewer/public/config/default.js
-sed -i "s|name: 'DCM4CHEE'|name: 'Orthanc'|g" ./platform/viewer/public/config/default.js
-sed -i "s|wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado'|wadoUriRoot: '/proxy/dicom/wado'|g" ./platform/viewer/public/config/default.js
-sed -i "s|wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs'|wadoRoot: '/proxy/dicom/wado'|g" ./platform/viewer/public/config/default.js
-sed -i "s|qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs'|qidoRoot: '/proxy/dicom/qido'|g" ./platform/viewer/public/config/default.js
+# #git checkout -- ./platform/viewer/public/config/default.js
+# sed -i "s|routerBasename: '/'|routerBasename: '/ohif/'|g" ./platform/viewer/public/config/default.js
+# sed -i "s|name: 'DCM4CHEE'|name: 'Orthanc'|g" ./platform/viewer/public/config/default.js
+# sed -i "s|wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado'|wadoUriRoot: '/proxy/dicom/wado'|g" ./platform/viewer/public/config/default.js
+# sed -i "s|wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs'|wadoRoot: '/proxy/dicom/wado'|g" ./platform/viewer/public/config/default.js
+# sed -i "s|qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs'|qidoRoot: '/proxy/dicom/qido'|g" ./platform/viewer/public/config/default.js
 
 # Viewers/platform/viewer/.env
 #git checkout -- ./platform/viewer/.env
-sed -i "s|PUBLIC_URL=/|PUBLIC_URL=/ohif/|g" ./platform/viewer/.env
+# sed -i "s|PUBLIC_URL=/|PUBLIC_URL=/ohif/|g" ./platform/viewer/.env
 
 # monailabel plugin
 cd extensions
@@ -48,8 +48,8 @@ ln -s ../../monai-label monai-label
 cd ..
 
 #git checkout -- ./platform/viewer/src/index.js
-sed -i "s|let config = {};|import OHIFMONAILabelExtension from '@ohif/extension-monai-label';\nlet config = {};|g" ./platform/viewer/src/index.js
-sed -i "s|defaultExtensions: \[|defaultExtensions: \[OHIFMONAILabelExtension,|g" ./platform/viewer/src/index.js
+# sed -i "s|let config = {};|import OHIFMONAILabelExtension from '@ohif/extension-monai-label';\nlet config = {};|g" ./platform/viewer/src/index.js
+# sed -i "s|defaultExtensions: \[|defaultExtensions: \[OHIFMONAILabelExtension,|g" ./platform/viewer/src/index.js
 
 yarn config set workspaces-experimental true
 yarn install
@@ -68,6 +68,6 @@ mv ./Viewers/platform/viewer/dist ${install_dir}
 echo "Copied OHIF to ${install_dir}"
 
 #rm -rf Viewers
-git restore Viewers
+# git restore Viewers
 
 cd ${curr_dir}
