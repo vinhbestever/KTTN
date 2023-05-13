@@ -1235,3 +1235,126 @@ ValueError: num_samples should be a positive integer value, but got num_samples=
 [2023-05-13 10:54:36,257] [35146] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
 [2023-05-13 10:54:36,257] [35146] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7fcb4fc9f3a0>
 [2023-05-13 10:54:36,257] [35146] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-05-13 14:04:14,019] [63766] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/KTTN/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen,deepgrow_2d,localization_spine,localization_vertebra,segmentation_vertebra'}
+[2023-05-13 14:04:14,155] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-05-13 14:04:14,159] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-05-13 14:04:14,159] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-05-13 14:04:14,160] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-05-13 14:04:14,161] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-05-13 14:04:14,162] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-05-13 14:04:14,162] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-05-13 14:04:14,162] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-05-13 14:04:14,163] [63766] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-05-13 14:04:14,163] [63766] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-05-13 14:04:14,226] [63766] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-05-13 14:04:14,226] [63766] [MainThread] [INFO] (main:93) - +++ Adding Model: deepgrow_2d => lib.configs.deepgrow_2d.Deepgrow2D
+[2023-05-13 14:04:14,260] [63766] [MainThread] [INFO] (main:93) - +++ Adding Model: localization_spine => lib.configs.localization_spine.LocalizationSpine
+[2023-05-13 14:04:14,335] [63766] [MainThread] [INFO] (main:93) - +++ Adding Model: localization_vertebra => lib.configs.localization_vertebra.LocalizationVertebra
+[2023-05-13 14:04:14,409] [63766] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_vertebra => lib.configs.segmentation_vertebra.SegmentationVertebra
+[2023-05-13 14:04:14,482] [63766] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen', 'deepgrow_2d', 'localization_spine', 'localization_vertebra', 'segmentation_vertebra']
+[2023-05-13 14:04:14,483] [63766] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-05-13 14:04:14,483] [63766] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-05-13 14:04:14,492] [63766] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-05-13 14:04:14,492] [63766] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-05-13 14:04:14,492] [63766] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-05-13 14:04:14,494] [63766] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-05-13 14:04:14,495] [63766] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-05-13 14:04:14,496] [63766] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f50eca27190>
+[2023-05-13 14:04:14,496] [63766] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: deepgrow_2d => <lib.infers.deepgrow.Deepgrow object at 0x7f50eca27130>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: localization_spine => <lib.infers.localization_spine.LocalizationSpine object at 0x7f50eca391c0>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: localization_vertebra => <lib.infers.localization_vertebra.LocalizationVertebra object at 0x7f50eca39190>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_vertebra => <lib.infers.segmentation_vertebra.SegmentationVertebra object at 0x7f50eca39100>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f50eca27190>, 'deepgrow_2d': <lib.infers.deepgrow.Deepgrow object at 0x7f50eca27130>, 'localization_spine': <lib.infers.localization_spine.LocalizationSpine object at 0x7f50eca391c0>, 'localization_vertebra': <lib.infers.localization_vertebra.LocalizationVertebra object at 0x7f50eca39190>, 'segmentation_vertebra': <lib.infers.segmentation_vertebra.SegmentationVertebra object at 0x7f50eca39100>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7f50eca391f0>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7f50eca39220>, 'vertebra_pipeline': <lib.infers.vertebra_pipeline.InferVertebraPipeline object at 0x7f50eca39250>}
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7f50eca39310>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: deepgrow_2d => <lib.trainers.deepgrow.Deepgrow object at 0x7f50eca39340>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: localization_spine => <lib.trainers.localization_spine.LocalizationSpine object at 0x7f50eca39370>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: localization_vertebra => <lib.trainers.localization_vertebra.LocalizationVertebra object at 0x7f50eca393a0>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_vertebra => <lib.trainers.segmentation_vertebra.SegmentationVertebra object at 0x7f50eca393d0>
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-05-13 14:04:14,497] [63766] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-05-13 14:04:14,498] [63766] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7f50eca368b0>
+[2023-05-13 14:04:14,498] [63766] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-05-13 14:08:39,356] [66932] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/KTTN/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen,deepgrow_2d,localization_spine,localization_vertebra,segmentation_vertebra'}
+[2023-05-13 14:08:39,494] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-05-13 14:08:39,498] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-05-13 14:08:39,498] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-05-13 14:08:39,499] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-05-13 14:08:39,500] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-05-13 14:08:39,501] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-05-13 14:08:39,501] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-05-13 14:08:39,501] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-05-13 14:08:39,501] [66932] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-05-13 14:08:39,502] [66932] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-05-13 14:08:39,557] [66932] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-05-13 14:08:39,557] [66932] [MainThread] [INFO] (main:93) - +++ Adding Model: deepgrow_2d => lib.configs.deepgrow_2d.Deepgrow2D
+[2023-05-13 14:08:39,591] [66932] [MainThread] [INFO] (main:93) - +++ Adding Model: localization_spine => lib.configs.localization_spine.LocalizationSpine
+[2023-05-13 14:08:39,666] [66932] [MainThread] [INFO] (main:93) - +++ Adding Model: localization_vertebra => lib.configs.localization_vertebra.LocalizationVertebra
+[2023-05-13 14:08:39,740] [66932] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_vertebra => lib.configs.segmentation_vertebra.SegmentationVertebra
+[2023-05-13 14:08:39,812] [66932] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen', 'deepgrow_2d', 'localization_spine', 'localization_vertebra', 'segmentation_vertebra']
+[2023-05-13 14:08:39,813] [66932] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-05-13 14:08:39,813] [66932] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-05-13 14:08:39,813] [66932] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-05-13 14:08:39,813] [66932] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-05-13 14:08:39,814] [66932] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-05-13 14:08:39,823] [66932] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-05-13 14:08:39,823] [66932] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7faeb6cf1370>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: deepgrow_2d => <lib.infers.deepgrow.Deepgrow object at 0x7faeb6cf1310>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: localization_spine => <lib.infers.localization_spine.LocalizationSpine object at 0x7faeb6d043a0>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: localization_vertebra => <lib.infers.localization_vertebra.LocalizationVertebra object at 0x7faeb6d04370>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_vertebra => <lib.infers.segmentation_vertebra.SegmentationVertebra object at 0x7faeb6d042e0>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7faeb6cf1370>, 'deepgrow_2d': <lib.infers.deepgrow.Deepgrow object at 0x7faeb6cf1310>, 'localization_spine': <lib.infers.localization_spine.LocalizationSpine object at 0x7faeb6d043a0>, 'localization_vertebra': <lib.infers.localization_vertebra.LocalizationVertebra object at 0x7faeb6d04370>, 'segmentation_vertebra': <lib.infers.segmentation_vertebra.SegmentationVertebra object at 0x7faeb6d042e0>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7faeb6d043d0>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7faeb6d04400>, 'vertebra_pipeline': <lib.infers.vertebra_pipeline.InferVertebraPipeline object at 0x7faeb6d04430>}
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7faeb6d044f0>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: deepgrow_2d => <lib.trainers.deepgrow.Deepgrow object at 0x7faeb6d04520>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: localization_spine => <lib.trainers.localization_spine.LocalizationSpine object at 0x7faeb6d04550>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: localization_vertebra => <lib.trainers.localization_vertebra.LocalizationVertebra object at 0x7faeb6d04580>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_vertebra => <lib.trainers.segmentation_vertebra.SegmentationVertebra object at 0x7faeb6d045b0>
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-05-13 14:08:39,824] [66932] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-05-13 14:08:39,825] [66932] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-05-13 14:08:39,825] [66932] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7faeb6d018b0>
+[2023-05-13 14:08:39,825] [66932] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
+[2023-05-13 14:20:46,580] [75325] [MainThread] [INFO] (monailabel.interfaces.utils.app:37) - Initializing App from: /home/ndvinh/Desktop/KLTN/KTTN/apps/radiology; studies: http://127.0.0.1:8042/dicom-web; conf: {'models': 'segmentation_spleen,deepgrow_2d,localization_spine,localization_vertebra,segmentation_vertebra'}
+[2023-05-13 14:20:46,720] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for MONAILabelApp Found: <class 'main.MyApp'>
+[2023-05-13 14:20:46,723] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_3d.Deepgrow3D'>
+[2023-05-13 14:20:46,724] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_vertebra.SegmentationVertebra'>
+[2023-05-13 14:20:46,725] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepedit.DeepEdit'>
+[2023-05-13 14:20:46,726] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation.Segmentation'>
+[2023-05-13 14:20:46,726] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_spine.LocalizationSpine'>
+[2023-05-13 14:20:46,726] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.deepgrow_2d.Deepgrow2D'>
+[2023-05-13 14:20:46,727] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.localization_vertebra.LocalizationVertebra'>
+[2023-05-13 14:20:46,727] [75325] [MainThread] [INFO] (monailabel.utils.others.class_utils:57) - Subclass for TaskConfig Found: <class 'lib.configs.segmentation_spleen.SegmentationSpleen'>
+[2023-05-13 14:20:46,727] [75325] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_spleen => lib.configs.segmentation_spleen.SegmentationSpleen
+[2023-05-13 14:20:46,788] [75325] [MainThread] [INFO] (lib.configs.segmentation_spleen:75) - EPISTEMIC Enabled: False; Samples: 5
+[2023-05-13 14:20:46,788] [75325] [MainThread] [INFO] (main:93) - +++ Adding Model: deepgrow_2d => lib.configs.deepgrow_2d.Deepgrow2D
+[2023-05-13 14:20:46,822] [75325] [MainThread] [INFO] (main:93) - +++ Adding Model: localization_spine => lib.configs.localization_spine.LocalizationSpine
+[2023-05-13 14:20:46,897] [75325] [MainThread] [INFO] (main:93) - +++ Adding Model: localization_vertebra => lib.configs.localization_vertebra.LocalizationVertebra
+[2023-05-13 14:20:46,968] [75325] [MainThread] [INFO] (main:93) - +++ Adding Model: segmentation_vertebra => lib.configs.segmentation_vertebra.SegmentationVertebra
+[2023-05-13 14:20:47,047] [75325] [MainThread] [INFO] (main:96) - +++ Using Models: ['segmentation_spleen', 'deepgrow_2d', 'localization_spine', 'localization_vertebra', 'segmentation_vertebra']
+[2023-05-13 14:20:47,047] [75325] [MainThread] [INFO] (monailabel.interfaces.app:134) - Init Datastore for: http://127.0.0.1:8042/dicom-web
+[2023-05-13 14:20:47,047] [75325] [MainThread] [INFO] (monailabel.interfaces.app:155) - Using DICOM WEB: http://127.0.0.1:8042/dicom-web
+[2023-05-13 14:20:47,048] [75325] [MainThread] [INFO] (monailabel.datastore.dicom:62) - DICOMWeb Datastore (cache) Path: /home/ndvinh/.cache/monailabel/dicom/488fca1f7f3f98331f6f7756beca0d35; FetchByFrame: False
+[2023-05-13 14:20:47,048] [75325] [MainThread] [INFO] (monailabel.datastore.dicom:63) - DICOMWeb Convert To Nifti: True
+[2023-05-13 14:20:47,048] [75325] [MainThread] [INFO] (monailabel.datastore.local:129) - Auto Reload: True; Extensions: ('*.nii.gz', '*.nii')
+[2023-05-13 14:20:47,049] [75325] [MainThread] [INFO] (monailabel.datastore.local:576) - Invalidate count: 0
+[2023-05-13 14:20:47,049] [75325] [MainThread] [INFO] (monailabel.datastore.local:150) - Start observing external modifications on datastore (AUTO RELOAD)
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_spleen => <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f0c2f03f460>
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: deepgrow_2d => <lib.infers.deepgrow.Deepgrow object at 0x7f0c2f03f400>
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: localization_spine => <lib.infers.localization_spine.LocalizationSpine object at 0x7f0c2f052490>
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: localization_vertebra => <lib.infers.localization_vertebra.LocalizationVertebra object at 0x7f0c2f052460>
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:126) - +++ Adding Inferer:: segmentation_vertebra => <lib.infers.segmentation_vertebra.SegmentationVertebra object at 0x7f0c2f0523d0>
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:191) - {'segmentation_spleen': <lib.infers.segmentation_spleen.SegmentationSpleen object at 0x7f0c2f03f460>, 'deepgrow_2d': <lib.infers.deepgrow.Deepgrow object at 0x7f0c2f03f400>, 'localization_spine': <lib.infers.localization_spine.LocalizationSpine object at 0x7f0c2f052490>, 'localization_vertebra': <lib.infers.localization_vertebra.LocalizationVertebra object at 0x7f0c2f052460>, 'segmentation_vertebra': <lib.infers.segmentation_vertebra.SegmentationVertebra object at 0x7f0c2f0523d0>, 'Histogram+GraphCut': <monailabel.scribbles.infer.HistogramBasedGraphCut object at 0x7f0c2f0524c0>, 'GMM+GraphCut': <monailabel.scribbles.infer.GMMBasedGraphCut object at 0x7f0c2f0524f0>, 'vertebra_pipeline': <lib.infers.vertebra_pipeline.InferVertebraPipeline object at 0x7f0c2f052520>}
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_spleen => <lib.trainers.segmentation_spleen.SegmentationSpleen object at 0x7f0c2f0525e0>
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: deepgrow_2d => <lib.trainers.deepgrow.Deepgrow object at 0x7f0c2f052610>
+[2023-05-13 14:20:47,050] [75325] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: localization_spine => <lib.trainers.localization_spine.LocalizationSpine object at 0x7f0c2f052640>
+[2023-05-13 14:20:47,051] [75325] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: localization_vertebra => <lib.trainers.localization_vertebra.LocalizationVertebra object at 0x7f0c2f052670>
+[2023-05-13 14:20:47,051] [75325] [MainThread] [INFO] (main:206) - +++ Adding Trainer:: segmentation_vertebra => <lib.trainers.segmentation_vertebra.SegmentationVertebra object at 0x7f0c2f0526a0>
+[2023-05-13 14:20:47,051] [75325] [MainThread] [INFO] (monailabel.utils.sessions:51) - Session Path: /home/ndvinh/.cache/monailabel/sessions
+[2023-05-13 14:20:47,051] [75325] [MainThread] [INFO] (monailabel.utils.sessions:52) - Session Expiry (max): 3600
+[2023-05-13 14:20:47,051] [75325] [MainThread] [INFO] (monailabel.interfaces.app:468) - App Init - completed
+[2023-05-13 14:20:47,051] [75325] [MainThread] [INFO] (timeloop:60) - Starting Timeloop..
+[2023-05-13 14:20:47,051] [75325] [MainThread] [INFO] (timeloop:42) - Registered job <function MONAILabelApp.on_init_complete.<locals>.run_scheduler at 0x7f0c2f04f8b0>
+[2023-05-13 14:20:47,051] [75325] [MainThread] [INFO] (timeloop:63) - Timeloop now started. Jobs will run based on the interval set
