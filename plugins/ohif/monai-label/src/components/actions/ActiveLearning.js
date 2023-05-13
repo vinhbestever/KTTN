@@ -152,12 +152,12 @@ export default class OptionTable extends BaseTab {
         continue;
       }
 
-      console.debug(metadata);
+      console.debug("metadata",metadata);
 
       const segments = flattenLabelmaps(
         getLabelMaps(this.props.viewConstants.element)
       );
-      console.debug(segments);
+      console.debug("segments",segments);
 
       if (metadata.length !== segments.length + 1) {
         console.warn('Segments and Metadata NOT matching; So Ignore');
