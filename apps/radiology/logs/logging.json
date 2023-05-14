@@ -24,7 +24,7 @@
         "task_handler": {
             "class": "logging.handlers.RotatingFileHandler",
             "formatter": "single",
-            "filename": "/home/ndvinh/Desktop/KLTN/KTTN/apps/radiology/logs/app.log",
+            "filename": "/home/ndcuong/Documents/KTTN/apps/radiology/logs/app.log",
             "backupCount": 10,
             "maxBytes": 10485760,
             "encoding": "utf-8"
@@ -32,7 +32,7 @@
         "file_handler": {
             "class": "logging.handlers.RotatingFileHandler",
             "formatter": "simple",
-            "filename": "/home/ndvinh/Desktop/KLTN/KTTN/apps/radiology/logs/app.log",
+            "filename": "/home/ndcuong/Documents/KTTN/apps/radiology/logs/app.log",
             "backupCount": 10,
             "maxBytes": 10485760,
             "encoding": "utf-8"
