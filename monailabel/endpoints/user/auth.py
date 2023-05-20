@@ -21,6 +21,8 @@ from passlib.context import CryptContext
 from pydantic import BaseModel, ValidationError
 
 from monailabel.config import settings
+from monailabel.endpoints.user import models
+from monailabel.schemas import CoreModel
 
 # openssl rand -hex 32
 SECRET_KEY = "c1d2508874b7774026272647cd1d2c0471a9e81d949a0f3a85abe413eb2a95a0"
@@ -58,6 +60,33 @@ class User(BaseModel):
 
 class UserInDB(User):
     hashed_password: str
+
+
+class UserInfo(BaseModel):
+    username: str
+    email: Union[str, None] = None
+    full_name: Union[str, None] = None
+    disabled: Union[bool, None] = None
+
+class CreateUser(UserInfo):
+    hashed_password: str
+
+class UserWId(UserInfo):
+    id: str
+
+class Login(BaseModel):
+    username: str
+    password: str
+
+class Register(Login):
+    username: str
+    password: str
+    email: Union[str, None] = None
+    full_name: Union[str, None] = None
+    # scopes: List[str] = []
+
+class RegisterResponse(CoreModel):
+    data: Union[UserWId, object] = None
 
 
 def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None):
@@ -166,4 +195,21 @@ def authenticate_user(username: str, password: str):
         return None
     if not verify_password(password, user.hashed_password):
         return None
+    return user
+
+def get_user_db(username: str, session):
+    db = session.query(models.User).all()
+    return db
+
+    if username in db:
+        user_dict = db[username]
+        return UserInDB(**user_dict)
+    return None
+
+def authenticate_user_db(username: str, password: str, session):
+    user = get_user_db(username, session)
+    # if not user:
+    #     return None
+    # if not verify_password(password, user.hashed_password):
+    #     return None
     return user
