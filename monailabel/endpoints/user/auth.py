@@ -43,6 +43,9 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 class Token(BaseModel):
     access_token: str
     token_type: str
+    
+class LoginResponse(CoreModel):
+    data: Union[Token, object] = None
 
 
 class TokenData(BaseModel):
@@ -87,6 +90,9 @@ class Register(Login):
 
 class RegisterResponse(CoreModel):
     data: Union[UserWId, object] = None
+    
+class UserListResponse(CoreModel):
+    data: Union[List[UserWId], object] = None
 
 
 def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None):
@@ -197,19 +203,11 @@ def authenticate_user(username: str, password: str):
         return None
     return user
 
-def get_user_db(username: str, session):
-    db = session.query(models.User).all()
-    return db
 
-    if username in db:
-        user_dict = db[username]
-        return UserInDB(**user_dict)
-    return None
-
-def authenticate_user_db(username: str, password: str, session):
-    user = get_user_db(username, session)
-    # if not user:
-    #     return None
-    # if not verify_password(password, user.hashed_password):
-    #     return None
+def authenticate_user_db(username, password, session):
+    user = session.query(models.User).filter(models.User.username == username).first()
+    if not user:
+        return None
+    if not verify_password(password, user.hashed_password):
+        return None
     return user

@@ -13,10 +13,11 @@ import logging
 from datetime import timedelta
 
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import JSONResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
-from monailabel.endpoints.user.auth import ACCESS_TOKEN_EXPIRE_MINUTES, Token, Register, RegisterResponse, \
+from monailabel.endpoints.user.auth import ACCESS_TOKEN_EXPIRE_MINUTES, Token, Register, RegisterResponse, UserListResponse, LoginResponse, \
     authenticate_user, create_access_token, authenticate_user_db, get_password_hash
 from monailabel.database import Base, engine, get_session
 from monailabel.endpoints.user import models
@@ -32,30 +33,25 @@ router = APIRouter(
     responses={404: {"description": "Not found"}},
 )
 
-@router.post("/login")
-async def login_for_access_token(session: Session = Depends(get_session)):
-    # user = authenticate_user_db(form_data.username, form_data.password, session)
-    # if not user:
-    #     raise HTTPException(status_code=400, detail="Incorrect username or password")
+@router.post("/login", response_model=LoginResponse)
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), session: Session = Depends(get_session)):
+    user = authenticate_user_db(form_data.username, form_data.password, session)
 
-    # logger.info(f"User: {user.username}; Scopes: {user.scopes}")
+    if not user:
+        return JSONResponse(status_code=400, content={"success": False, "message": "Incorrect username or password", "data": None})
 
-    # access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    # access_token = create_access_token(
-    #     data={
-    #         "sub": user.username,
-    #         "scopes": user.scopes,
-    #     },
-    #     expires_delta=access_token_expires,
-    # )
+    logger.info(f"User: {user.username}")
 
-    user = session.query(models.User).all()
-
-    # close the session
-    session.close()
-
-    return {"access_token": user, "token_type": "bearer"}
-    return {"access_token": access_token, "token_type": "bearer"}
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = create_access_token(
+        data={
+            "sub": user.username,
+            # "scopes": user.scopes,
+        },
+        expires_delta=access_token_expires,
+    )
+    
+    return {"success": True, "message": None, "data": {"access_token": access_token, "token_type": "bearer"}}
 
 
 @router.post("/register", response_model=RegisterResponse)
@@ -77,6 +73,19 @@ async def register(user: Register, session: Session = Depends(get_session)):
         return {"success": False, "message": e, "data": None}
 
     return {"success": True, "message": None, "data": user}
+
+
+@router.post("/users", response_model=UserListResponse)
+async def users(session: Session = Depends(get_session)):
+    try:
+        users = session.query(models.User).all()
+        
+        # close the session
+        session.close()
+    except Exception as e:
+        return {"success": False, "message": e, "data": None}
+
+    return {"success": True, "message": None, "data": users}
 
 
 @router.post("/token", response_model=Token)
