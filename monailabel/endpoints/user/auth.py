@@ -9,13 +9,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import logging
+
 import json
 import os
 from datetime import datetime, timedelta
 from typing import List, Union, Literal
 
 from fastapi import Depends, HTTPException, Security, status
-from fastapi.security import OAuth2PasswordBearer, SecurityScopes
+from fastapi.security import OAuth2PasswordBearer, SecurityScopes, HTTPBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel, ValidationError
@@ -23,6 +25,9 @@ from pydantic import BaseModel, ValidationError
 from monailabel.config import settings
 from monailabel.endpoints.user import models
 from monailabel.schemas import CoreModel
+
+
+logger = logging.getLogger(__name__)
 
 # openssl rand -hex 32
 SECRET_KEY = "c1d2508874b7774026272647cd1d2c0471a9e81d949a0f3a85abe413eb2a95a0"
@@ -38,6 +43,7 @@ scopes = {
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+reusable_oauth2 = HTTPBearer(scheme_name='Authorization')
 
 
 class Token(BaseModel):
@@ -95,6 +101,26 @@ class RegisterResponse(CoreModel):
 class UserListResponse(CoreModel):
     data: Union[List[UserWId], object] = None
 
+
+def validate_token(http_authorization_credentials=Depends(reusable_oauth2)) -> str:
+    """
+    Decode JWT token to get username => return username
+    """
+    try:
+        payload = jwt.decode(http_authorization_credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
+        # logger.info(f"payloadsadfasdadsa: {payload}")
+        # logger.info(f"payloadsadfasdadsa: {payload.get('exp')}")
+        # logger.info(f"payloadsadfasdadsa: {datetime.utcnow() + timedelta(minutes=0)}")
+        logger.info(f"payloadsadfasdadsa: {payload.get('exp') < datetime.now()}")
+        if payload.get('exp') < datetime.now():
+            raise HTTPException(status_code=403, detail="Token expired")
+        return payload.get('exp')
+    # except(jwt.PyJWTError, ValidationError):
+    except(Exception):
+        raise HTTPException(
+            status_code=403,
+            detail=f"Could not validate credentials",
+        )
 
 def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None):
     to_encode = data.copy()

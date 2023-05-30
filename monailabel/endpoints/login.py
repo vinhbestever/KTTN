@@ -18,7 +18,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 from monailabel.endpoints.user.auth import ACCESS_TOKEN_EXPIRE_MINUTES, Token, Register, RegisterResponse, UserListResponse, LoginResponse, \
-    authenticate_user, create_access_token, authenticate_user_db, get_password_hash
+    authenticate_user, create_access_token, authenticate_user_db, get_password_hash, validate_token
 from monailabel.database import Base, engine, get_session
 from monailabel.endpoints.user import models
 
@@ -77,7 +77,7 @@ async def register(user: Register, session: Session = Depends(get_session)):
     return {"success": True, "message": None, "data": user}
 
 
-@router.post("/users", response_model=UserListResponse)
+@router.post("/users", response_model=UserListResponse, dependencies=[Depends(validate_token)])
 async def users(session: Session = Depends(get_session)):
     try:
         users = session.query(models.User).all()
