@@ -46,12 +46,13 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     access_token = create_access_token(
         data={
             "sub": user.username,
+            "username": user.username,
             # "scopes": user.scopes,
         },
         expires_delta=access_token_expires,
     )
     
-    return {"success": True, "message": None, "data": {"access_token": access_token, "token_type": "bearer"}}
+    return {"success": True, "message": None, "data": {"access_token": access_token, "token_type": "Bearer"}}
 
 
 @router.post("/register", response_model=RegisterResponse)
@@ -81,9 +82,6 @@ async def register(user: Register, session: Session = Depends(get_session)):
 async def users(session: Session = Depends(get_session)):
     try:
         users = session.query(models.User).all()
-        
-        # close the session
-        session.close()
     except Exception as e:
         return {"success": False, "message": e, "data": None}
 
