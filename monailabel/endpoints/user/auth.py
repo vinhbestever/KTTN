@@ -12,7 +12,7 @@
 import json
 import os
 from datetime import datetime, timedelta
-from typing import List, Union
+from typing import List, Union, Literal
 
 from fastapi import Depends, HTTPException, Security, status
 from fastapi.security import OAuth2PasswordBearer, SecurityScopes
@@ -70,6 +70,7 @@ class UserInfo(BaseModel):
     email: Union[str, None] = None
     full_name: Union[str, None] = None
     disabled: Union[bool, None] = None
+    scopes: Literal['admin', 'user']
 
 class CreateUser(UserInfo):
     hashed_password: str
@@ -86,7 +87,7 @@ class Register(Login):
     password: str
     email: Union[str, None] = None
     full_name: Union[str, None] = None
-    # scopes: List[str] = []
+    scopes: Literal['admin', 'user']
 
 class RegisterResponse(CoreModel):
     data: Union[UserWId, object] = None

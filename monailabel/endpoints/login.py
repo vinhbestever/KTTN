@@ -57,12 +57,14 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 @router.post("/register", response_model=RegisterResponse)
 async def register(user: Register, session: Session = Depends(get_session)):
     try:
+        logger.info(user)
         user = models.User(
             username = user.username, 
             email = user.email, 
             hashed_password = get_password_hash(user.password),
             full_name = user.full_name,
-            disabled = False
+            disabled = False,
+            scopes = user.scopes
         )
 
         # add it to the session and commit it
