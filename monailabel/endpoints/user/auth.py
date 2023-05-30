@@ -21,10 +21,12 @@ from fastapi.security import OAuth2PasswordBearer, SecurityScopes, HTTPBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel, ValidationError
+from sqlalchemy.orm import Session
 
 from monailabel.config import settings
 from monailabel.endpoints.user import models
 from monailabel.schemas import CoreModel
+from monailabel.database import get_session
 
 
 logger = logging.getLogger(__name__)
@@ -102,21 +104,28 @@ class UserListResponse(CoreModel):
     data: Union[List[UserWId], object] = None
 
 
-def validate_token(http_authorization_credentials=Depends(reusable_oauth2)) -> str:
+def validate_token(http_authorization_credentials = Depends(reusable_oauth2), session: Session = Depends(get_session)) -> str:
     """
     Decode JWT token to get username => return username
     """
     try:
         payload = jwt.decode(http_authorization_credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
-        # logger.info(f"payloadsadfasdadsa: {payload}")
-        # logger.info(f"payloadsadfasdadsa: {payload.get('exp')}")
-        # logger.info(f"payloadsadfasdadsa: {datetime.utcnow() + timedelta(minutes=0)}")
-        logger.info(f"payloadsadfasdadsa: {payload.get('exp') < datetime.now()}")
-        if payload.get('exp') < datetime.now():
+        
+        user = session.query(models.User) \
+            .filter(models.User.username == payload.get('username')) \
+            .first()
+            
+        logger.info(f"User Token: {user.username}")
+            
+        if not user:
+            raise HTTPException(status_code=403, detail="Token expired")
+
+        if payload.get('exp') < int(datetime.now().timestamp()):
             raise HTTPException(status_code=403, detail="Token expired")
         return payload.get('exp')
     # except(jwt.PyJWTError, ValidationError):
-    except(Exception):
+    except Exception as e:
+        logger.info(f"Token Error: {e}")
         raise HTTPException(
             status_code=403,
             detail=f"Could not validate credentials",
