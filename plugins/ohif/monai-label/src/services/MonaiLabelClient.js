@@ -80,6 +80,16 @@ export default class MonaiLabelClient {
     return await MonaiLabelClient.api_put_data(url, data, 'json');
   }
 
+  async login(username, password) {
+    let url = new URL(`login`, this.server_url);
+
+    const data = new FormData();
+    data.append("username", username);
+    data.append("password", password);
+
+    return await MonaiLabelClient.api_post_data(url, data, 'json');
+  }
+
   async is_train_running() {
     let url = new URL('train', this.server_url);
     url.searchParams.append('check_if_running', 'true');
