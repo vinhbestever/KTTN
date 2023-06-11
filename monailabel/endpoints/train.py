@@ -20,6 +20,8 @@ from monailabel.interfaces.app import MONAILabelApp
 from monailabel.interfaces.utils.app import app_instance
 from monailabel.utils.async_tasks.task import AsyncTask
 
+from monailabel.endpoints.user.auth import validate_token
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(
@@ -67,7 +69,7 @@ def stop():
     return res
 
 
-@router.get("/", summary="Get Status of Training Task")
+@router.get("/", summary="Get Status of Training Task", dependencies=[Depends(validate_token)])
 async def api_status(
     all: bool = False,
     check_if_running: bool = False,
@@ -76,7 +78,7 @@ async def api_status(
     return status(all, check_if_running)
 
 
-@router.post("/", summary="Run All Training Tasks", deprecated=True)
+@router.post("/", summary="Run All Training Tasks", deprecated=True, dependencies=[Depends(validate_token)])
 async def api_run(
     params: Optional[dict] = None,
     run_sync: Optional[bool] = False,
@@ -85,7 +87,7 @@ async def api_run(
     return run(params, run_sync)
 
 
-@router.post("/{model}", summary="Run Training Task for specific model")
+@router.post("/{model}", summary="Run Training Task for specific model", dependencies=[Depends(validate_token)])
 async def api_run_model(
     model: str,
     params: Optional[dict] = None,
@@ -96,6 +98,6 @@ async def api_run_model(
     return run_model(model, params, run_sync, enqueue)
 
 
-@router.delete("/", summary="Stop Training Task")
+@router.delete("/", summary="Stop Training Task", dependencies=[Depends(validate_token)])
 async def api_stop(user: User = Depends(get_admin_user)):
     return stop()

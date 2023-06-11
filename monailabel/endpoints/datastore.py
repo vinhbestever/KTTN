@@ -28,6 +28,8 @@ from monailabel.interfaces.datastore import Datastore, DefaultLabelTag
 from monailabel.interfaces.utils.app import app_instance
 from monailabel.utils.others.generic import file_checksum, get_mime_type, remove_file
 
+from monailabel.endpoints.user.auth import validate_token
+
 logger = logging.getLogger(__name__)
 train_tasks: List = []
 train_process: Dict = dict()
@@ -195,13 +197,13 @@ def download_dataset(limit_cases: Optional[int] = None):
     return FileResponse(path, media_type=get_mime_type(path), filename="dataset.zip")
 
 
-@router.get("/", summary="Get All Images/Labels from datastore")
+@router.get("/", summary="Get All Images/Labels from datastore", dependencies=[Depends(validate_token)])
 async def api_datastore(output: Optional[ResultType] = None, user: User = Depends(get_basic_user)):
     return datastore(output)
 
 
-@router.put("/", summary="Upload new Image", deprecated=True)
-@router.put("/image", summary="Upload new Image")
+@router.put("/", summary="Upload new Image", deprecated=True, dependencies=[Depends(validate_token)])
+@router.put("/image", summary="Upload new Image", dependencies=[Depends(validate_token)])
 async def api_add_image(
     background_tasks: BackgroundTasks,
     image: Optional[str] = None,
@@ -212,33 +214,33 @@ async def api_add_image(
     return add_image(background_tasks, image, params, file, user.username)
 
 
-@router.delete("/", summary="Remove Image and corresponding labels", deprecated=True)
-@router.delete("/image", summary="Remove Image and corresponding labels")
+@router.delete("/", summary="Remove Image and corresponding labels", deprecated=True, dependencies=[Depends(validate_token)])
+@router.delete("/image", summary="Remove Image and corresponding labels", dependencies=[Depends(validate_token)])
 async def api_remove_image(id: str, user: User = Depends(get_admin_user)):
     return remove_image(id, user.username)
 
 
-@router.head("/image", summary="Check If Image Exists")
+@router.head("/image", summary="Check If Image Exists", dependencies=[Depends(validate_token)])
 async def api_check_image(image: str, check_sum: Optional[str] = None, user: User = Depends(get_basic_user)):
     return download_image(image, check_only=True, check_sum=check_sum)
 
 
-@router.get("/image", summary="Download Image")
+@router.get("/image", summary="Download Image", dependencies=[Depends(validate_token)])
 async def api_download_image(image: str, user: User = Depends(get_basic_user)):
     return download_image(image)
 
 
-@router.get("/image/info", summary="Get Image Info")
+@router.get("/image/info", summary="Get Image Info", dependencies=[Depends(validate_token)])
 async def api_get_image_info(image: str, user: User = Depends(get_basic_user)):
     return get_image_info(image)
 
 
-@router.put("/image/info", summary="Update Image Info")
+@router.put("/image/info", summary="Update Image Info", dependencies=[Depends(validate_token)])
 async def api_put_image_info(image: str, info: str = Form("{}"), user: User = Depends(get_annotator_user)):
     return update_image_info(image, info, user.username)
 
 
-@router.put("/label", summary="Save Finished Label")
+@router.put("/label", summary="Save Finished Label", dependencies=[Depends(validate_token)])
 async def api_save_label(
     background_tasks: BackgroundTasks,
     image: str,
@@ -250,38 +252,38 @@ async def api_save_label(
     return save_label(background_tasks, image, params, tag, label, user.username)
 
 
-@router.delete("/label", summary="Remove Label")
+@router.delete("/label", summary="Remove Label", dependencies=[Depends(validate_token)])
 async def api_remove_label(id: str, tag: str, user: User = Depends(get_reviwer_user)):
     return remove_label(id, tag, user.username)
 
 
-@router.head("/label", summary="Check If Label Exists")
+@router.head("/label", summary="Check If Label Exists", dependencies=[Depends(validate_token)])
 async def api_check_label(image: str, tag: str, user: User = Depends(get_basic_user)):
     return download_label(image, tag, check_only=True)
 
 
-@router.get("/label", summary="Download Label")
+@router.get("/label", summary="Download Label", dependencies=[Depends(validate_token)])
 async def api_download_label(label: str, tag: str, user: User = Depends(get_basic_user)):
     return download_label(label, tag)
 
 
-@router.get("/label/info", summary="Get Label Info")
+@router.get("/label/info", summary="Get Label Info", dependencies=[Depends(validate_token)])
 async def api_get_label_info(label: str, tag: str, user: User = Depends(get_basic_user)):
     return get_label_info(label, tag)
 
 
-@router.put("/label/info", summary="Update Label Info")
+@router.put("/label/info", summary="Update Label Info", dependencies=[Depends(validate_token)])
 async def api_put_label_info(label: str, tag: str, info: str = Form("{}"), user: User = Depends(get_annotator_user)):
     return update_label_info(label, tag, info, user.username)
 
 
-@router.put("/updatelabelinfo", summary="Update label info", deprecated=True)
+@router.put("/updatelabelinfo", summary="Update label info", deprecated=True, dependencies=[Depends(validate_token)])
 async def api_update_label_info(
     label: str, tag: str, params: str = Form("{}"), user: User = Depends(get_annotator_user)
 ):
     return update_label_info(label, tag, params, user.username)
 
 
-@router.get("/dataset", summary="Download full dataset as ZIP archive")
+@router.get("/dataset", summary="Download full dataset as ZIP archive", dependencies=[Depends(validate_token)])
 async def api_download_dataset(limit_cases: Optional[int] = None):
     return download_dataset(limit_cases)
