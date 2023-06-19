@@ -78,14 +78,14 @@ async def register(user: Register, session: Session = Depends(get_session)):
     return {"success": True, "message": None, "data": user}
 
 
-@router.post("/users", response_model=UserListResponse, dependencies=[Depends(validate_token)])
-async def users(session: Session = Depends(get_session)):
-    try:
-        users = session.query(models.User).all()
-    except Exception as e:
-        return {"success": False, "message": e, "data": None}
+# @router.post("/users", response_model=UserListResponse, dependencies=[Depends(validate_token)])
+# async def users(session: Session = Depends(get_session)):
+#     try:
+#         users = session.query(models.User).all()
+#     except Exception as e:
+#         return {"success": False, "message": e, "data": None}
 
-    return {"success": True, "message": None, "data": users}
+#     return {"success": True, "message": None, "data": users}
 
 
 @router.post("/token", response_model=Token)

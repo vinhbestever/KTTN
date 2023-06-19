@@ -102,6 +102,9 @@ class RegisterResponse(CoreModel):
     
 class UserListResponse(CoreModel):
     data: Union[List[UserWId], object] = None
+    
+class UserDetailResponse(CoreModel):
+    data: Union[UserWId, object] = None
 
 
 def validate_token(http_authorization_credentials = Depends(reusable_oauth2), session: Session = Depends(get_session)) -> str:
