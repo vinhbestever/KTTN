@@ -10,15 +10,12 @@
 # limitations under the License.
 
 import logging
-from datetime import timedelta
 
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import JSONResponse
-from fastapi.security import OAuth2PasswordRequestForm
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from monailabel.endpoints.user.auth import ACCESS_TOKEN_EXPIRE_MINUTES, Token, UserListResponse, UserDetailResponse, Register, \
-    authenticate_user, create_access_token, authenticate_user_db, get_password_hash, validate_token
+from monailabel.endpoints.user.auth import UserListResponse, UserDetailResponse, Register, \
+    get_password_hash, validate_token
 from monailabel.database import Base, engine, get_session
 from monailabel.endpoints.user import models
 
@@ -95,8 +92,8 @@ async def update_user(user_id: str, user: Register, session: Session = Depends(g
 @router.delete("/users/{user_id}", response_model=UserDetailResponse, dependencies=[Depends(validate_token)])
 async def delete_user(user_id: str, session: Session = Depends(get_session)):
     try:
-        user = session.query(models.User).filter_by(id=car_id).delete()
-        if num_rows == 0:
+        user = session.query(models.User).filter_by(id=user_id).delete()
+        if user == 0:
              return {"success": False, "message": 'Not found', "data": None}
         session.commit()
     except Exception as e:
