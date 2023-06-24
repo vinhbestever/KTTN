@@ -36,6 +36,7 @@ from monailabel.endpoints import (
     train,
     wsi_infer,
     users,
+    auth,
 )
 from monailabel.interfaces.utils.app import app_instance, clear_cache
 
@@ -67,6 +68,8 @@ app.mount(
 )
 
 app.include_router(login.router, prefix=settings.MONAI_LABEL_API_STR)
+app.include_router(auth.router, prefix=settings.MONAI_LABEL_API_STR)
+app.include_router(users.router, prefix=settings.MONAI_LABEL_API_STR)
 app.include_router(info.router, prefix=settings.MONAI_LABEL_API_STR)
 app.include_router(model.router, prefix=settings.MONAI_LABEL_API_STR)
 app.include_router(infer.router, prefix=settings.MONAI_LABEL_API_STR)
@@ -80,7 +83,6 @@ app.include_router(logs.router, prefix=settings.MONAI_LABEL_API_STR)
 app.include_router(ohif.router, prefix=settings.MONAI_LABEL_API_STR)
 app.include_router(proxy.router, prefix=settings.MONAI_LABEL_API_STR)
 app.include_router(session.router, prefix=settings.MONAI_LABEL_API_STR)
-app.include_router(users.router, prefix=settings.MONAI_LABEL_API_STR)
 
 
 @app.get("/", include_in_schema=False)
