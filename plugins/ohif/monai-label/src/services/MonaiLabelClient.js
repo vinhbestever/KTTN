@@ -69,7 +69,7 @@ export default class MonaiLabelClient {
     let url = new URL('datastore/label', this.server_url);
     url.searchParams.append('image', image);
     url = url.toString();
-
+    console.log("save_label",image, label, params,url);
     const data = MonaiLabelClient.constructFormDataFromArray(
       params,
       label,
@@ -88,6 +88,27 @@ export default class MonaiLabelClient {
     data.append("password", password);
 
     return await MonaiLabelClient.api_post_data(url, data, 'json');
+  }
+
+  async register(username, password,email,name) {
+    let url = new URL(`register`, this.server_url);
+
+    const data = new FormData();
+
+    const result = {
+      "username": username,
+      "password": password,
+      "email": email,
+      "full_name": name,
+      "scopes": "admin"
+    }
+    data.append("username", username);
+    data.append("password", password);
+    data.append("email", email);
+    data.append("full_name", name);
+    data.append("scopes", 'admin');
+
+    return await MonaiLabelClient.api_post_data(url, result, 'json');
   }
 
   async is_train_running() {
@@ -138,9 +159,10 @@ export default class MonaiLabelClient {
   }
 
   static api_get(url) {
+    const Token = sessionStorage.getItem('Token')
     console.debug('GET:: ' + url);
     return axios
-      .get(url)
+      .get(url, { headers: {"Authorization" : `${Token}`} })
       .then(function(response) {
         console.debug(response);
         return response;
@@ -152,9 +174,10 @@ export default class MonaiLabelClient {
   }
 
   static api_delete(url) {
+    const Token = sessionStorage.getItem('Token')
     console.debug('DELETE:: ' + url);
     return axios
-      .delete(url)
+      .delete(url, { headers: {"Authorization" : `${Token}`} })
       .then(function(response) {
         console.debug(response);
         return response;
@@ -179,12 +202,14 @@ export default class MonaiLabelClient {
   }
 
   static api_post_data(url, data, responseType) {
+    const Token = sessionStorage.getItem('Token')
     console.debug('POST:: ' + url);
     return axios
       .post(url, data, {
         responseType: responseType,
         headers: {
           accept: ['application/json', 'multipart/form-data'],
+          "Authorization" : `${Token}`
         },
       })
       .then(function(response) {
@@ -205,12 +230,14 @@ export default class MonaiLabelClient {
   }
 
   static api_put_data(url, data, responseType = 'json') {
+    const Token = sessionStorage.getItem('Token')
     console.debug('PUT:: ' + url);
     return axios
       .put(url, data, {
         responseType: responseType,
         headers: {
           accept: ['application/json', 'multipart/form-data'],
+          "Authorization" : `${Token}`
         },
       })
       .then(function(response) {
