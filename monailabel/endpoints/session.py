@@ -25,6 +25,8 @@ from monailabel.interfaces.utils.app import app_instance
 from monailabel.utils.others.generic import get_basename, get_mime_type, remove_file
 from monailabel.utils.sessions import Sessions
 
+from monailabel.endpoints.user.auth import validate_token
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(
@@ -110,7 +112,7 @@ def remove_session(session_id: str):
     raise HTTPException(status_code=404, detail="Session Not Found")
 
 
-@router.get("/{session_id}", summary="Get Session ID")
+@router.get("/{session_id}", summary="Get Session ID", dependencies=[Depends(validate_token)])
 async def api_get_session(
     session_id: str,
     update_ts: bool = False,
@@ -120,7 +122,7 @@ async def api_get_session(
     return get_session(session_id, update_ts, image)
 
 
-@router.put("/", summary="Create new session with Image")
+@router.put("/", summary="Create new session with Image", dependencies=[Depends(validate_token)])
 async def api_create_session(
     background_tasks: BackgroundTasks,
     uncompress: bool = False,
@@ -131,6 +133,6 @@ async def api_create_session(
     return create_session(background_tasks, uncompress, expiry, files)
 
 
-@router.delete("/{session_id}", summary="Delete Session")
+@router.delete("/{session_id}", summary="Delete Session", dependencies=[Depends(validate_token)])
 async def api_remove_session(session_id: str, user: User = Depends(get_basic_user)):
     return remove_session(session_id)

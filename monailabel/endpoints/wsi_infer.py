@@ -22,7 +22,7 @@ from fastapi.background import BackgroundTasks
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from monailabel.endpoints.user.auth import User, get_basic_user
+from monailabel.endpoints.user.auth import User, get_basic_user, validate_token
 from monailabel.interfaces.app import MONAILabelApp
 from monailabel.interfaces.utils.app import app_instance
 from monailabel.utils.others.generic import get_mime_type, remove_file
@@ -113,7 +113,7 @@ def run_wsi_inference(
     return send_response(instance.datastore(), result, output, background_tasks)
 
 
-@router.post("/wsi/{model}", summary="Run WSI Inference for supported model", deprecated=True)
+@router.post("/wsi/{model}", summary="Run WSI Inference for supported model", deprecated=True, dependencies=[Depends(validate_token)])
 async def api_run_wsi_inference(
     background_tasks: BackgroundTasks,
     model: str,
@@ -126,7 +126,7 @@ async def api_run_wsi_inference(
     return run_wsi_inference(background_tasks, model, image, session_id, None, wsi, output)
 
 
-@router.post("/wsi_v2/{model}", summary="Run WSI Inference for supported model")
+@router.post("/wsi_v2/{model}", summary="Run WSI Inference for supported model", dependencies=[Depends(validate_token)])
 async def api_run_wsi_v2_inference(
     background_tasks: BackgroundTasks,
     model: str,

@@ -9,20 +9,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import logging
+
 import json
 import os
 from datetime import datetime, timedelta
-from typing import List, Union
+from typing import List, Union, Literal
 
 from fastapi import Depends, HTTPException, Security, status
-from fastapi.security import OAuth2PasswordBearer, SecurityScopes
+from fastapi.security import OAuth2PasswordBearer, SecurityScopes, HTTPBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel, ValidationError
+from sqlalchemy.orm import Session
 
 from monailabel.config import settings
 from monailabel.endpoints.user import models
 from monailabel.schemas import CoreModel
+from monailabel.database import get_session
+
+
+logger = logging.getLogger(__name__)
 
 # openssl rand -hex 32
 SECRET_KEY = "c1d2508874b7774026272647cd1d2c0471a9e81d949a0f3a85abe413eb2a95a0"
@@ -38,6 +45,7 @@ scopes = {
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+reusable_oauth2 = HTTPBearer(scheme_name='Authorization')
 
 
 class Token(BaseModel):
@@ -70,6 +78,7 @@ class UserInfo(BaseModel):
     email: Union[str, None] = None
     full_name: Union[str, None] = None
     disabled: Union[bool, None] = None
+    scopes: Literal['admin', 'user']
 
 class CreateUser(UserInfo):
     hashed_password: str
@@ -86,14 +95,44 @@ class Register(Login):
     password: str
     email: Union[str, None] = None
     full_name: Union[str, None] = None
-    # scopes: List[str] = []
+    scopes: Literal['admin', 'user']
 
 class RegisterResponse(CoreModel):
     data: Union[UserWId, object] = None
     
 class UserListResponse(CoreModel):
     data: Union[List[UserWId], object] = None
+    
+class UserDetailResponse(CoreModel):
+    data: Union[UserWId, object] = None
 
+
+def validate_token(http_authorization_credentials = Depends(reusable_oauth2), session: Session = Depends(get_session)) -> str:
+    """
+    Decode JWT token to get username => return username
+    """
+    try:
+        payload = jwt.decode(http_authorization_credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
+        
+        user = session.query(models.User) \
+            .filter(models.User.username == payload.get('username')) \
+            .first()
+            
+        logger.info(f"User Token: {user.username}")
+            
+        if not user:
+            raise HTTPException(status_code=403, detail="Token expired")
+
+        if payload.get('exp') < int(datetime.now().timestamp()):
+            raise HTTPException(status_code=403, detail="Token expired")
+        return payload.get('exp')
+    # except(jwt.PyJWTError, ValidationError):
+    except Exception as e:
+        logger.info(f"Token Error: {e}")
+        raise HTTPException(
+            status_code=403,
+            detail=f"Could not validate credentials",
+        )
 
 def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None):
     to_encode = data.copy()

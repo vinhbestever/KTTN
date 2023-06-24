@@ -20,6 +20,8 @@ from monailabel.interfaces.datastore import DefaultLabelTag
 from monailabel.interfaces.tasks.batch_infer import BatchInferImageType
 from monailabel.utils.async_tasks.task import AsyncTask
 
+from monailabel.endpoints.user.auth import validate_token
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(
@@ -58,12 +60,12 @@ def stop():
     return res
 
 
-@router.get("/infer", summary="Get Status of Batch Inference Task")
+@router.get("/infer", summary="Get Status of Batch Inference Task", dependencies=[Depends(validate_token)])
 async def api_status(all: bool = False, check_if_running: bool = False, user: User = Depends(get_annotator_user)):
     return status(all, check_if_running)
 
 
-@router.post("/infer/{model}", summary="Run Batch Inference Task")
+@router.post("/infer/{model}", summary="Run Batch Inference Task", dependencies=[Depends(validate_token)])
 async def api_run(
     model: str,
     images: Optional[BatchInferImageType] = BatchInferImageType.IMAGES_ALL,
@@ -83,6 +85,6 @@ async def api_run(
     return run(model, images, params, run_sync)
 
 
-@router.delete("/infer", summary="Stop Batch Inference Task")
+@router.delete("/infer", summary="Stop Batch Inference Task", dependencies=[Depends(validate_token)])
 async def api_stop(user: User = Depends(get_annotator_user)):
     return stop()

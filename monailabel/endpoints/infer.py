@@ -29,6 +29,8 @@ from monailabel.interfaces.app import MONAILabelApp
 from monailabel.interfaces.utils.app import app_instance
 from monailabel.utils.others.generic import get_mime_type, remove_file
 
+from monailabel.endpoints.user.auth import validate_token
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(
@@ -164,7 +166,7 @@ def run_inference(
     return send_response(instance.datastore(), result, output, background_tasks)
 
 
-@router.post("/{model}", summary="Run Inference for supported model")
+@router.post("/{model}", summary="Run Inference for supported model", dependencies=[Depends(validate_token)])
 async def api_run_inference(
     background_tasks: BackgroundTasks,
     model: str,

@@ -18,7 +18,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 from monailabel.endpoints.user.auth import ACCESS_TOKEN_EXPIRE_MINUTES, Token, Register, RegisterResponse, UserListResponse, LoginResponse, \
-    authenticate_user, create_access_token, authenticate_user_db, get_password_hash
+    authenticate_user, create_access_token, authenticate_user_db, get_password_hash, validate_token
 from monailabel.database import Base, engine, get_session
 from monailabel.endpoints.user import models
 
@@ -46,23 +46,26 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     access_token = create_access_token(
         data={
             "sub": user.username,
+            "username": user.username,
             # "scopes": user.scopes,
         },
         expires_delta=access_token_expires,
     )
     
-    return {"success": True, "message": None, "data": {"access_token": access_token, "token_type": "bearer"}}
+    return {"success": True, "message": None, "data": {"access_token": access_token, "token_type": "Bearer"}}
 
 
 @router.post("/register", response_model=RegisterResponse)
 async def register(user: Register, session: Session = Depends(get_session)):
     try:
+        logger.info(user)
         user = models.User(
             username = user.username, 
             email = user.email, 
             hashed_password = get_password_hash(user.password),
             full_name = user.full_name,
-            disabled = False
+            disabled = False,
+            scopes = user.scopes
         )
 
         # add it to the session and commit it
@@ -75,17 +78,14 @@ async def register(user: Register, session: Session = Depends(get_session)):
     return {"success": True, "message": None, "data": user}
 
 
-@router.post("/users", response_model=UserListResponse)
-async def users(session: Session = Depends(get_session)):
-    try:
-        users = session.query(models.User).all()
-        
-        # close the session
-        session.close()
-    except Exception as e:
-        return {"success": False, "message": e, "data": None}
+# @router.post("/users", response_model=UserListResponse, dependencies=[Depends(validate_token)])
+# async def users(session: Session = Depends(get_session)):
+#     try:
+#         users = session.query(models.User).all()
+#     except Exception as e:
+#         return {"success": False, "message": e, "data": None}
 
-    return {"success": True, "message": None, "data": users}
+#     return {"success": True, "message": None, "data": users}
 
 
 @router.post("/token", response_model=Token)

@@ -20,6 +20,8 @@ from fastapi.responses import FileResponse, Response
 from monailabel.config import settings
 from monailabel.endpoints.user.auth import User, get_basic_user
 
+from monailabel.endpoints.user.auth import validate_token
+
 router = APIRouter(
     prefix="/logs",
     tags=["Others"],
@@ -88,7 +90,7 @@ def get_logs(logger_file, lines, html, text, refresh):
     return FileResponse(logger_file, media_type="text/plain")
 
 
-@router.get("/", summary="Get Logs")
+@router.get("/", summary="Get Logs", dependencies=[Depends(validate_token)])
 async def api_get_logs(
     lines: Optional[int] = 300,
     html: Optional[bool] = True,
@@ -99,7 +101,7 @@ async def api_get_logs(
     return get_logs(os.path.join(settings.MONAI_LABEL_APP_DIR, "logs", "app.log"), lines, html, text, refresh)
 
 
-@router.get("/gpu", summary="Get GPU Info (nvidia-smi)")
+@router.get("/gpu", summary="Get GPU Info (nvidia-smi)", dependencies=[Depends(validate_token)])
 async def gpu_info(user: User = Depends(get_basic_user)):
     response = subprocess.run(["nvidia-smi"], stdout=subprocess.PIPE).stdout.decode("utf-8")
     return Response(content=response, media_type="text/plain")
