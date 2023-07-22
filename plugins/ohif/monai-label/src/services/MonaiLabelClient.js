@@ -111,6 +111,17 @@ export default class MonaiLabelClient {
     return await MonaiLabelClient.api_post_data(url, result, 'json');
   }
 
+  async list_users() {
+    let url = new URL('users', this.server_url);
+    return await MonaiLabelClient.api_get(url.toString());
+  }
+
+  async delete_user(id) {
+    const url = new URL('users', this.server_url).toString().concat(`/${id}`);
+
+    return await MonaiLabelClient.api_delete(url);
+  }
+
   async is_train_running() {
     let url = new URL('train', this.server_url);
     url.searchParams.append('check_if_running', 'true');
@@ -168,6 +179,8 @@ export default class MonaiLabelClient {
         return response;
       })
       .catch(function(error) {
+        if(error.toString().includes('403')) window.location.pathname = '/ohif/login'
+        
         return error;
       })
       .finally(function() {});
@@ -183,6 +196,8 @@ export default class MonaiLabelClient {
         return response;
       })
       .catch(function(error) {
+        if(error.toString().includes('403')) window.location.pathname = '/ohif/login'
+        
         return error;
       })
       .finally(function() {});
@@ -217,6 +232,8 @@ export default class MonaiLabelClient {
         return response;
       })
       .catch(function(error) {
+        if(error.toString().includes('403')) window.location.pathname = '/ohif/login'
+
         return error;
       })
       .finally(function() {});
@@ -245,6 +262,8 @@ export default class MonaiLabelClient {
         return response;
       })
       .catch(function(error) {
+        if(error.toString().includes('403')) window.location.pathname = '/ohif/login'
+
         return error;
       });
   }
