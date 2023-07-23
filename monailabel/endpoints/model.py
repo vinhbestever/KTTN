@@ -20,6 +20,8 @@ from monailabel.interfaces.app import MONAILabelApp
 from monailabel.interfaces.utils.app import app_instance
 from monailabel.utils.others.generic import file_ext, get_mime_type
 
+from monailabel.endpoints.user.auth import validate_token
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(
@@ -49,11 +51,11 @@ def download_model(model: str):
     return FileResponse(file, media_type=get_mime_type(file), filename=filename)
 
 
-@router.get("/{model}", summary="Download Latest Model Weights")
+@router.get("/{model}", summary="Download Latest Model Weights", dependencies=[Depends(validate_token)])
 async def api_download_model(model: str, user: User = Depends(get_basic_user)):
     return download_model(model)
 
 
-@router.get("/info/{model}", summary="Get CheckSum/Details for the Latest Model File")
+@router.get("/info/{model}", summary="Get CheckSum/Details for the Latest Model File", dependencies=[Depends(validate_token)])
 async def api_model_info(model: str, user: User = Depends(get_basic_user)):
     return model_info(model)

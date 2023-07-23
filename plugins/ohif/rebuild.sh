@@ -48,8 +48,8 @@ ln -s ../../monai-label monai-label
 cd ..
 
 git checkout -- ./platform/viewer/src/index.js
-sed -i "s|let config = {};|import OHIFMONAILabelExtension from '@ohif/extension-monai-label';\nlet config = {};|g" ./platform/viewer/src/index.js
-sed -i "s|defaultExtensions: \[|defaultExtensions: \[OHIFMONAILabelExtension,|g" ./platform/viewer/src/index.js
+# sed -i "s|let config = {};|import OHIFMONAILabelExtension from '@ohif/extension-monai-label';\nlet config = {};|g" ./platform/viewer/src/index.js
+# sed -i "s|defaultExtensions: \[|defaultExtensions: \[OHIFMONAILabelExtension,|g" ./platform/viewer/src/index.js
 
 yarn config set workspaces-experimental true
 yarn install

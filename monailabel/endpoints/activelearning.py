@@ -19,6 +19,8 @@ from monailabel.endpoints.user.auth import User, get_basic_user
 from monailabel.interfaces.app import MONAILabelApp
 from monailabel.interfaces.utils.app import app_instance
 
+from monailabel.endpoints.user.auth import validate_token
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(
@@ -60,7 +62,7 @@ def sample(strategy: str, params: Optional[dict] = None, user: Optional[str] = N
     return result
 
 
-@router.post("/{strategy}", summary="Run Active Learning strategy to get next sample")
+@router.post("/{strategy}", summary="Run Active Learning strategy to get next sample", dependencies=[Depends(validate_token)])
 async def api_sample(
     strategy: str,
     params: Optional[dict] = None,
