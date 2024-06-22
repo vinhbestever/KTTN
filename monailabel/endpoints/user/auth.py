@@ -144,6 +144,27 @@ def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
+def get_current_user_db(http_authorization_credentials = Depends(reusable_oauth2), session: Session = Depends(get_session)) -> str:
+    try:
+        payload = jwt.decode(http_authorization_credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
+        
+        user = session.query(models.User) \
+            .filter(models.User.username == payload.get('username')) \
+            .first()
+            
+        logger.info(f"User Token: {user.username}")
+            
+        if not user:
+            return None
+
+        if payload.get('exp') < int(datetime.now().timestamp()):
+            return None
+        return user
+    # except(jwt.PyJWTError, ValidationError):
+    except Exception as e:
+        logger.info(f"Token Error: {e}")
+        return None
+
 
 async def get_current_user(
     security_scopes: SecurityScopes, token: str = Depends(oauth2_scheme) if settings.MONAI_LABEL_AUTH_ENABLE else ""
