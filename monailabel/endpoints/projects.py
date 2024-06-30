@@ -4,7 +4,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from monailabel.endpoints.project.schemas import CreateProject, ProjectListResponse, ProjectDetailResponse
-from monailabel.database import Base, engine, get_session, validate_token
+from monailabel.endpoints.user.auth import validate_token
+from monailabel.database import Base, engine, get_session
 from monailabel.endpoints.project import models
 
 # Create the database
