@@ -15,7 +15,7 @@ class ChoiceType(types.TypeDecorator):
     def process_result_value(self, value, dialect):
         return self.choices[value]
 
-class User(Base):
+class Project(Base):
     STATUS = {
         "active": "active",
         "inactive": "inactive"
@@ -25,5 +25,4 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
     description = Column(String, unique=True, index=True)
-    workflow = Column(String, unique=True, index=True)
     status = Column(ChoiceType(STATUS), default='active')

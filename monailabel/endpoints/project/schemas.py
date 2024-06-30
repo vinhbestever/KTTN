@@ -10,13 +10,11 @@ logger = logging.getLogger(__name__)
 class CreateProject(BaseModel):
     name: str
     description: Union[str, None] = None
-    workflow: Union[str, None] = None
     status: Literal['active', 'inactive']
 
 class Project(BaseModel):
     name: str
     description: Union[str, None] = None
-    workflow: Union[str, None] = None
     status: Union[str, None] = None
 
 class ProjectWId(Project):

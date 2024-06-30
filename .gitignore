@@ -121,6 +121,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+monai_env
 
 # Spyder project settings
 .spyderproject
