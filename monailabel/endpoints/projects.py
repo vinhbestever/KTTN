@@ -1,9 +1,13 @@
 import logging
 
-from fastapi import APIRouter, Depends
+from typing import Optional
+from fastapi import APIRouter, Depends, Query
+from fastapi_pagination import Page, add_pagination
+from fastapi_pagination.ext.sqlalchemy import paginate
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from monailabel.endpoints.project.schemas import CreateProject, ProjectListResponse, ProjectDetailResponse
+from monailabel.endpoints.project.schemas import CreateProject, ProjectListResponse, ProjectDetailResponse, ProjectStatus
 from monailabel.endpoints.user.auth import validate_token
 from monailabel.database import Base, engine, get_session
 from monailabel.endpoints.project import models
@@ -18,15 +22,44 @@ router = APIRouter(
     tags=["Project"],
     responses={404: {"description": "Not found"}},
 )
+def get_pagination_params(
+    page: int = Query(1, gt=0),
+    per_page: int = Query(10, gt=0)
+):
+    return {"page": page, "per_page": per_page}
 
 @router.get("/projects", response_model=ProjectListResponse, dependencies=[Depends(validate_token)])
-async def project_list(session: Session = Depends(get_session)):
+async def project_list(
+    name: Optional[str] = Query(None), 
+    status: ProjectStatus = Query(None), 
+    pagination: dict = Depends(get_pagination_params), 
+    session: Session = Depends(get_session)
+):
     try:
-        projects = session.query(models.Project).all()
-    except Exception as e:
-        return {"success": False, "message": e, "data": None}
+        page = pagination["page"]
+        per_page = pagination["per_page"]
 
-    return {"success": True, "message": None, "data": projects}
+        start = (page - 1) * per_page
+        end = start + per_page
+
+        total = 0
+        projects = session.query(models.Project)
+
+        if name:
+            projects = projects.filter(models.Project.name.like(f"{name}%"))
+
+        if status:
+            projects = projects.filter(models.Project.status == status)
+
+        projects = projects.all()
+        total = len(projects)
+
+        projects = projects[start:end]
+
+    except Exception as e:
+        return {"success": False, "message": e, "items": None, "total": 0}
+
+    return {"success": True, "message": None, "items": projects, "total": total}
 
 @router.post("/projects", response_model=ProjectListResponse, dependencies=[Depends(validate_token)])
 async def create_project(project: CreateProject, session: Session = Depends(get_session)):
@@ -86,3 +119,5 @@ async def delete_project(project_id: str, session: Session = Depends(get_session
         return {"success": False, "message": e, "data": None}
 
     return {"success": True, "message": None, "data": None}
+
+add_pagination(router)
