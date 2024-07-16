@@ -24,5 +24,5 @@ class Project(Base):
     __tablename__ = 'project'
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
-    description = Column(String, unique=True, index=True)
+    description = Column(String, index=True)
     status = Column(ChoiceType(STATUS), default='active')
