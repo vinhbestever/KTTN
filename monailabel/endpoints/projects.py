@@ -34,7 +34,6 @@ async def create_project(project: CreateProject, session: Session = Depends(get_
         project = models.Project(
             name = project.name, 
             description = project.description, 
-            workflow = project.workflow,
             status = project.status
         )
 
