@@ -2,18 +2,18 @@ import logging
 import pydicom
 
 from io import BytesIO
-from requests.auth import HTTPBasicAuth
+# from requests.auth import HTTPBasicAuth
 from pydicom.uid import generate_uid
 from pydicom.dataset import Dataset
 from dicomweb_client.api import DICOMwebClient
-from dicomweb_client.session_utils import create_session_from_auth
+# from dicomweb_client.session_utils import create_session_from_auth
 
 logger = logging.getLogger(__name__)
 
 ORTHANC_SERVER = "http://localhost:8042/dicom-web"
 
-auth = HTTPBasicAuth('admin', 'admin')
-session = create_session_from_auth(auth)
+# auth = HTTPBasicAuth('admin', 'admin')
+# session = create_session_from_auth(auth)
 
 class DICOMWebAPI():
     def __init__(
@@ -26,7 +26,7 @@ class DICOMWebAPI():
 
         dw_client = DICOMwebClient(
             url=ORTHANC_SERVER,
-            session=session
+            # session=session
         )
 
         return dw_client
@@ -35,15 +35,6 @@ class DICOMWebAPI():
         # studies = self.client_web.search_for_studies()
         try:
             studies = self.client_web.search_for_studies()
-            if studies:
-                print("List of studies:")
-                for study in studies:
-                    print(f"Study Instance UID: {study['0020000D']['Value'][0]}")
-                    print(f"Study Date: {study.get('00080020', {'Value': ['N/A']})['Value'][0]}")
-                    print(f"Study Description: {study.get('00081030', {'Value': ['N/A']})['Value'][0]}")
-                    print("---")
-            else:
-                print("No studies found.")
         except Exception as e:
             print(f"Failed to query studies: {e}")
 
