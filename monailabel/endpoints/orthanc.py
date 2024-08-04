@@ -46,6 +46,15 @@ async def studies():
     except Exception as e:
         return {"success": False, "message": e, "data": None}
     
+@router.get("/instances")
+async def instances():
+    try:
+        instances = DICOMWebAPI().search_for_instances()
+
+        return {"success": True, "message": None, "data": instances}
+    except Exception as e:
+        return {"success": False, "message": e, "data": None}
+    
 @router.post("/upload")
 async def upload(files: list[UploadFile]):
     try:        
