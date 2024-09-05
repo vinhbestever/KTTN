@@ -47,50 +47,21 @@ class DICOMWebAPI():
     
     async def store_instances(self, files):
         datasets = list()
-        try:
-            for f in files:
+        for f in files:
+            try:
                 logger.info(f"Using files type: {f}")
                 # Read the uploaded DICOM file
                 dicom_data = await f.read()
                 dicom_data_io = BytesIO(dicom_data)
-
                 dicom_dataset = pydicom.dcmread(dicom_data_io)
-                
-                # Modify DICOM attributes if necessary (e.g., generate new UIDs)
-                # new_study_uid = generate_uid()
-                # new_series_uid = generate_uid()
-                # new_sop_uid = generate_uid()
-
-                # dicom_dataset.StudyInstanceUID = new_study_uid
-                # dicom_dataset.SeriesInstanceUID = new_series_uid
-                # dicom_dataset.SOPInstanceUID = new_sop_uid
-                # logger.info(f"dicom_dataset.StudyInstanceUID: {dicom_dataset.StudyInstanceUID}")
-                # logger.info(f"dicom_dataset.SeriesInstanceUID: {dicom_dataset.SeriesInstanceUID}")
-                # logger.info(f"dicom_dataset.SOPInstanceUID: {dicom_dataset.SOPInstanceUID}")
-
-
-                # dicom_dataset.PatientName = "Gen a new name"
-                # dicom_dataset.StudyDate = "2024-8-4"
-
-                # print(f"Patient Name: {dicom_dataset.PatientName}")
-                # print(f"Patient ID: {dicom_dataset.PatientID}")
-                # print(f"Modality: {dicom_dataset.Modality}")
-                # print(f"Study Date: {dicom_dataset.StudyDate}")
-                # print(f"Study Description: {dicom_dataset.StudyDescription}")
-                # print(f"Study Instance UID: {dicom_dataset.StudyInstanceUID}")
-                # print(f"Series Instance UID: {dicom_dataset.SeriesInstanceUID}")
-                # print(f"SOP Instance UID: {dicom_dataset.SOPInstanceUID}")
-                # logger.info(f"Using aloooo: {dicom_dataset}")
 
                 datasets.append(dicom_dataset)
             
-            
-            instances = self.client_web.store_instances(datasets)
+            except Exception as e:
+                logger.info(f"Using error: {e}")
+                raise e
 
-        except Exception as e:
-            logger.info(f"Using error: {e}")
-            raise e
-
+        instances = self.client_web.store_instances(datasets)
         return instances
     
     def retrieve_study_metadata(self, study_metadata):

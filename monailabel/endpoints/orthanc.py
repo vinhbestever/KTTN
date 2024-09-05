@@ -59,8 +59,7 @@ async def instances():
 async def upload(files: list[UploadFile]):
     try:        
         instances = await DICOMWebAPI().store_instances(files)
-
-        return {"success": True, "message": None, "data": instances}
+        return {"success": True, "message": "Store files successfully", "data": None}
     except Exception as e:
         return {"success": False, "message": e, "data": None}
     
