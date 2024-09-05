@@ -2,8 +2,6 @@ import logging
 
 from typing import Optional
 from fastapi import APIRouter, Depends, Query
-from fastapi_pagination import Page, add_pagination
-from fastapi_pagination.ext.sqlalchemy import paginate
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -119,5 +117,3 @@ async def delete_project(project_id: str, session: Session = Depends(get_session
         return {"success": False, "message": e, "data": None}
 
     return {"success": True, "message": None, "data": None}
-
-add_pagination(router)
